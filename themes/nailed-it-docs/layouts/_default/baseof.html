@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="base-url" content="{{ .Site.BaseURL }}">
+
+  <!-- Tailwind CSS with typography plugin -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+
+  <!-- Courier Prime font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Fuse.js for search -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"Courier Prime"', '"Courier New"', 'Courier', 'monospace'],
+          },
+          colors: {
+            'nav':     '#E8ECF2',
+            'sidebar': '#EDF0F5',
+            'paper':   '#F5F7FA',
+          },
+          typography: (theme) => ({
+            DEFAULT: {
+              css: {
+                fontFamily: '"Courier Prime", "Courier New", Courier, monospace',
+                color: theme('colors.slate.800'),
+                a: {
+                  color: theme('colors.blue.600'),
+                  textDecoration: 'none',
+                  '&:hover': { textDecoration: 'underline' },
+                },
+                'h1, h2, h3, h4': {
+                  fontFamily: '"Courier Prime", "Courier New", Courier, monospace',
+                  fontWeight: '700',
+                  color: theme('colors.slate.900'),
+                },
+                h2: {
+                  borderBottom: `1px solid ${theme('colors.slate.200')}`,
+                  paddingBottom: theme('spacing.2'),
+                },
+                code: {
+                  backgroundColor: theme('colors.slate.100'),
+                  padding: '0.15em 0.3em',
+                  borderRadius: '0.2em',
+                  fontWeight: '400',
+                },
+                'code::before': { content: '""' },
+                'code::after':  { content: '""' },
+              },
+            },
+          }),
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Courier Prime', 'Courier New', Courier, monospace; }
+    /* Toc ul/li reset — Hugo wraps ToC in nav > ul */
+    .toc ul { list-style: none; margin: 0; padding: 0; }
+    .toc li { margin: 0; padding: 0; }
+    /* Keep headings visible below fixed header when jumping to anchors */
+    h1, h2, h3, h4 { scroll-margin-top: 6rem; }
+  </style>
+</head>
+
+<body class="bg-paper text-slate-800 min-h-screen">
+
+  {{ partial "header.html" . }}
+
+  <!-- Page body — push down by header height -->
+  <div class="flex pt-14 max-w-screen-2xl mx-auto min-h-screen">
+
+    <!-- Left sidebar -->
+    <aside class="hidden lg:block w-64 shrink-0 fixed top-14 bottom-0 overflow-y-auto
+                  bg-sidebar border-r border-slate-200 px-5 py-6">
+      {{ partial "nav-left.html" . }}
+    </aside>
+
+    <!-- Main content — offset by left sidebar width -->
+    <div class="lg:ml-64 flex-1 flex min-w-0">
+
+      <!-- Centre content -->
+      <main class="flex-1 min-w-0 px-8 py-8 max-w-3xl">
+        {{ partial "breadcrumb.html" . }}
+        {{ block "main" . }}{{ end }}
+      </main>
+
+      <!-- Right TOC sidebar -->
+      <aside class="hidden xl:block w-80 shrink-0 sticky top-14 self-start px-5 py-8 max-h-screen overflow-y-auto">
+        {{ partial "toc-right.html" . }}
+      </aside>
+
+    </div>
+  </div>
+
+  {{ partial "footer.html" . }}
+
+  <!-- Search script -->
+  <script src="{{ "js/search.js" | relURL }}"></script>
+
+</body>
+</html>

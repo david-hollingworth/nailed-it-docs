@@ -1,0 +1,16 @@
+<!-- Breadcrumb navigation -->
+{{ if not .IsHome }}
+<nav class="text-xs text-slate-500 mb-6 flex items-center gap-1.5 flex-wrap">
+  <a href="{{ .Site.BaseURL }}" class="hover:text-blue-600 transition-colors">Home</a>
+
+  {{ range .Ancestors.Reverse }}
+  <span class="text-slate-300">/</span>
+  <a href="{{ .Permalink }}" class="hover:text-blue-600 transition-colors">{{ .Title }}</a>
+  {{ end }}
+
+  {{ if not .IsSection }}
+  <span class="text-slate-300">/</span>
+  <span class="text-slate-700">{{ .Title }}</span>
+  {{ end }}
+</nav>
+{{ end }}

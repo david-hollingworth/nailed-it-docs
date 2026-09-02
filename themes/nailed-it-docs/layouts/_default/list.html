@@ -1,0 +1,40 @@
+{{ define "main" }}
+<article>
+  <header class="mb-8 pb-6 border-b border-slate-200">
+    <h1 class="text-3xl font-bold text-slate-900">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="mt-2 text-slate-500 text-sm">{{ . }}</p>
+    {{ end }}
+    {{ if or .Params.revision .Params.revision_date }}
+    <p class="mt-1 text-slate-500 text-sm">
+      {{ with .Params.revision }}Revision: {{ . }}{{ end }}
+      {{ if and .Params.revision .Params.revision_date }} &middot; {{ end }}
+      {{ with .Params.revision_date }}{{ . }}{{ end }}
+    </p>
+    {{ end }}
+  </header>
+
+  <!-- Section intro content if any -->
+  {{ with .Content }}
+  <div class="prose max-w-none leading-relaxed mb-10">
+    {{ . }}
+  </div>
+  {{ end }}
+
+  <!-- List of pages in this section -->
+  <nav>
+    <ul class="space-y-3">
+      {{ range .Pages.ByTitle }}
+      <li class="border border-slate-200 rounded p-4 hover:border-blue-300 hover:bg-white transition-colors">
+        <a href="{{ .Permalink }}" class="block">
+          <span class="font-bold text-slate-800 hover:text-blue-600">{{ .Title }}</span>
+          {{ with .Description }}
+          <span class="block text-sm text-slate-500 mt-0.5">{{ . }}</span>
+          {{ end }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+</article>
+{{ end }}

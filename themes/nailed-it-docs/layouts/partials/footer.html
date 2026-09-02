@@ -1,0 +1,10 @@
+<!-- Footer -->
+<footer class="border-t border-slate-300 mt-12 py-4 text-sm text-slate-500 text-center">
+  Nailed-It Docs
+  {{ with .Site.Params.githubURL }}
+  &middot;
+  <a href="{{ . }}/blob/main/LICENSE" class="hover:text-blue-600 transition-colors" target="_blank" rel="noopener">AGPL-3.0</a>
+  &middot;
+  <a href="{{ . }}" class="hover:text-blue-600 transition-colors" target="_blank" rel="noopener">GitHub</a>
+  {{ end }}
+</footer>

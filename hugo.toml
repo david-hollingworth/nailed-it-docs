@@ -1,0 +1,34 @@
+baseURL = "https://david-hollingworth.github.io/nailed-it-docs/"
+languageCode = "en-gb"
+title = "Nailed-It Docs"
+theme = "nailed-it-docs"
+
+disablePathToLower = true
+
+[mediaTypes]
+  [mediaTypes."application/json"]
+    suffixes = ["json"]
+
+[outputFormats]
+  [outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "index"
+    isPlainText = true
+    notAlternative = true
+
+[outputs]
+  home = ["HTML", "JSON"]
+
+[params]
+  description = "Documentation for Nailed-It"
+  githubURL = "https://github.com/david-hollingworth/nailed-it"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  style = "monochrome"
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 2

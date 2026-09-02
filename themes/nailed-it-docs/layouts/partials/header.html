@@ -1,0 +1,36 @@
+<!-- Top navigation bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-nav border-b border-slate-300 h-14">
+  <div class="flex items-center justify-between h-full px-4 max-w-screen-2xl mx-auto">
+
+    <!-- Site title -->
+    <a href="{{ .Site.BaseURL }}" class="font-bold text-xl tracking-tight text-slate-800 hover:text-blue-600 transition-colors">
+      Nailed-It Docs
+    </a>
+
+    <!-- Nav links -->
+    <nav class="flex items-center gap-4 text-sm text-slate-600">
+      {{ with .Site.Params.githubURL }}
+      <a href="{{ . }}" class="hover:text-blue-600 transition-colors" target="_blank" rel="noopener">
+        GitHub
+      </a>
+      <span class="text-slate-300">|</span>
+      {{ end }}
+
+      <!-- Search box -->
+      <div class="relative">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Search docs..."
+          autocomplete="off"
+          class="w-56 px-3 py-1.5 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+        >
+        <div
+          id="search-results"
+          class="hidden absolute right-0 top-full mt-1 w-96 bg-white border border-slate-200 rounded shadow-lg z-50 max-h-96 overflow-y-auto"
+        ></div>
+      </div>
+    </nav>
+
+  </div>
+</header>
