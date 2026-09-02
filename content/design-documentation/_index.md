@@ -1,5 +1,5 @@
 ---
-title: "Docs"
-description: "Documentation for Nailed-It"
+title: "Design Documentation"
+description: "Specification documentation for Nailed-It"
 weight: 10
 ---
