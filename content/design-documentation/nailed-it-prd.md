@@ -2,8 +2,8 @@
 title: "Nailed-It — Product Requirements Document"
 description: "An overview of the features and requirements for the Nailed-It application."
 draft: false
-revision: "0.3"
-revision_date: "03-Sep-2026"
+revision: "0.5"
+revision_date: "04-Sep-2026"
 ---
 
 
@@ -11,7 +11,7 @@ revision_date: "03-Sep-2026"
 
 *A personal life-planning app connecting a life vision to daily execution.*
 
-> **Note on scope**: Nailed-It is a personal-use project, not a commercial product — but it's built as a PWA with username/password accounts so more than one person can each run their own private account on it. There's no collaboration, sharing, or cross-account visibility between users; every account's data is fully isolated. "The user" below generally means "whoever is logged into a given account," and success metrics remain personal-effectiveness ones rather than business/growth metrics. Where the source feature list didn't specify a detail, an assumption is stated and flagged in Open Questions.
+> **Note on scope**: Nailed-It is a personal-use project, not a commercial product — but it's built as a web application with username/password accounts so more than one person can each run their own private account on it. There's no collaboration, sharing, or cross-account visibility between users; every account's data is fully isolated. "The user" below generally means "whoever is logged into a given account," and success metrics remain personal-effectiveness ones rather than business/growth metrics. 
 
 ---
 
@@ -28,13 +28,6 @@ Most goal-tracking tools are designed either from the simple to-do list or the p
 5. The AI assistant measurably improves goal quality (specificity, measurability, realism) versus goals the user would have written alone.
 6. The app's language and structure — goal framing, review prompts, AI assistant suggestions — draw on Neuro-Linguistic Programming (NLP) principles as a core value, not just as one optional goal-structure format.
 7. Recurring behaviors (habits) are tracked for consistency — via streaks and completion rate — not just as one-off completions, since many goals are achieved through repetition rather than a single task.
-
-## Not Included (v1)
-
-- **No collaboration or sharing features** — the app supports multiple independent accounts (each person gets their own private data), but there's no cross-account visibility, comments, sharing, or team/shared goals. Each account is its own silo.
-- **No gamification or social layer** (streaks-as-currency, leaderboards, sharing to social media) — the reflective/planning tone matters more than engagement mechanics.
-- **No third-party integrations** (calendar sync, Todoist/Notion import, wearables) in v1 — adds surface area before the core loop is proven out.
-- **No native mobile app.** — assumed responsive web app first that scales for mobile. 
 
 ## Primary User
 
@@ -80,7 +73,7 @@ Feature 4 below builds these directly into the Well-Formed Outcome deep-dive. Th
 These weren't part of the original feature list but are now decided, and they shape several of the features below.
 
 **Platform & Deployment**
-- [ ] Built as a Django web application. A PWA my be considered for a later version.
+- [ ] Built as a Django web application. A PWA is a Future Consideration.
 - [ ] Initial UI target is desktop; layouts are built responsively from the start so mobile support can follow without a rebuild.
 - [ ] Ships as a Docker stack (app + database + any worker/scheduler process the review-cycle engine needs) for easy self-hosting.
 
@@ -92,7 +85,7 @@ These weren't part of the original feature list but are now decided, and they sh
 - [ ] Username/password login, with standard account creation and email-based password-reset flow.
 - [ ] Each account's data (Vision Statement, Vision Board, Goals, Tasks, Reviews) is fully isolated — no cross-account visibility, sharing, or collaboration.
 - [ ] No roles/permissions beyond "logged in as this account," consistent with the no-collaboration non-goal above.
-- [ ] Two-factor authentication is out of scope for v1 — planned as an optional feature in a later phase.
+- [ ] Two-factor authentication is a Future Consideration.
 
 **Notifications**
 - [ ] Scheduled reviews (Feature 7) can notify via browser push, email, or Telegram — user-configurable, with more than one channel enabled at once if desired.
@@ -110,7 +103,7 @@ These weren't part of the original feature list but are now decided, and they sh
 
 ### 1. Life Vision Statement
 
-**Priority: P0**
+**Priority: MVP**
 
 - [ ] User can write, edit, and save a single free-text life vision statement.
 - [ ] Previous versions are retained and viewable (lightweight history, not full diffing).
@@ -122,7 +115,7 @@ These weren't part of the original feature list but are now decided, and they sh
 
 ### 2. Vision Board (mind map)
 
-**Priority: P0**
+**Priority: MVP**
 
 - [ ] Free-form canvas supporting nodes (Life Area, Goals, Tasks) and connecting edges.
 - [ ] Nodes can be created, dragged, renamed, deleted, and connected/disconnected.
@@ -138,7 +131,7 @@ Some people think visually, some think in lists — Goals and Life Areas can be 
 
 ### 3. Goals by Life, Year, and Month
 
-**Priority: P0**
+**Priority: MVP**
 
 - [ ] Goals can be created at a Life, Year, or Month horizon. **Life Goals are the top-level goal type** — every Year Goal rolls up to a parent Life Goal, and every Month Goal rolls up to a parent Year Goal.
 - [ ] A Life Goal can have child Year Goals; a Year Goal can have child Month Goals. Progress on child goals is visible from each parent, all the way up to the Life Goal.
@@ -152,7 +145,7 @@ Some people think visually, some think in lists — Goals and Life Areas can be 
 
 ### 4. Goal Depth: SMARTER (default) + Well-Formed Outcome (optional deeper pass)
 
-**Priority: P0**
+**Priority: MVP**
 
 Well-Formed Outcome isn't a separate, mutually-exclusive goal structure sitting alongside SMARTER — the template's own section 0 *is* "The SMART Goal." Well-Formed Outcome is built **on top of** a SMART(ER) goal as a deeper, optional reflective pass, not a replacement for it. This changes the data model from the original "pick one structure" framing to "every goal has its SMARTER core; Well-Formed Outcome adds seven extra layers of scrutiny on request."
 
@@ -180,7 +173,7 @@ Well-Formed Outcome isn't a separate, mutually-exclusive goal structure sitting 
 
 ### 5. Task Hierarchy
 
-**Priority: P0**
+**Priority: MVP**
 
 - [ ] Tasks inherit Goal's base fields (title, description, life area tagging, status) and extend with task-specific attributes: estimated effort/duration, recurrence rule, checklist of sub-tasks, actual completion date.
 - [ ] Tasks link to exactly one parent Goal (a task exists to serve a goal — no orphan tasks, consistent with Goal 1 above).
@@ -193,7 +186,7 @@ Well-Formed Outcome isn't a separate, mutually-exclusive goal structure sitting 
 
 ### 6. Areas of Focus
 
-**Priority: P0**
+**Priority: MVP**
 
 - [ ] Dedicated view listing all Life Areas, each showing its associated Goals and Tasks.
 - [ ] Filtering across the whole app (vision board, goal list, task list) by one or more Life Areas.
@@ -205,7 +198,7 @@ Well-Formed Outcome isn't a separate, mutually-exclusive goal structure sitting 
 
 ### 7. Structured Review Cycle
 
-**Priority: P0** (engine) / **P1** (advanced custom scheduling)
+**Priority: MVP** (engine) / **Nice-to-Have** (advanced custom scheduling)
 
 This is the most structurally distinct feature — it needs its own small scheduling sub-model rather than a single fixed cadence per type.
 
@@ -228,7 +221,7 @@ This is the most structurally distinct feature — it needs its own small schedu
 
 ### 8. AI Assistant (insight & goal-structure suggestions)
 
-**Priority: P1** — valuable but dependent on the rest of the data model existing first; reasonable to build after Features 1–7 have real data to work with.
+**Priority: Nice-to-Have**
 
 - [ ] Given a goal in progress, the AI assistant can critique it against its SMARTER fields (e.g., flag a missing measurable component) **and**, if Well-Formed Outcome depth has been added, against the seven-section framework (see Design Principle above) — noting thin or skipped sections rather than requiring them.
 - [ ] During or after a review, the AI assistant can surface pattern-level insight (e.g., "Health goals have been rescheduled 3 months running," or "Your meditation habit has slipped 3 weeks in a row") — described qualitatively, not as a hard analytics dashboard.
@@ -242,7 +235,7 @@ This is the most structurally distinct feature — it needs its own small schedu
 
 ### 9. Habit Tracking
 
-**Priority: P0** — core to the base product.
+**Priority: MVP**
 
 - [ ] User can create a Habit: title, optional description, optional Life Area tag(s), and link it to the parent Goal it serves (e.g., a "Meditate daily" habit supporting a "Mental Health" Life Area or a specific Year Goal).
 - [ ] Cadence is configurable: daily, weekly, a target count per week (e.g., "3x/week"), or specific days of the week.
@@ -258,7 +251,7 @@ This is the most structurally distinct feature — it needs its own small schedu
 
 ### 10. Success Drivers
 
-**Priority: P0** — core to the base product.
+**Priority: MVP**
 
 #### Problem Statement
 
@@ -275,9 +268,9 @@ Nailed-It currently chains a life vision down through Life Goals, Year Goals, Mo
 
 - **Not a journaling or gratitude-log feature.** Drivers are static, chosen statements re-shown over time, not new freeform entries per review. A journaling feature is a separate concern.
 - **Not social or shared content.** Nailed-It has no cross-account collaboration; a community-authored or shared driver library is explicitly out of scope.
-- **Not AI-generated in v1.** Personalized/AI-drafted drivers are a natural extension (see Future Considerations) but add cloud-AI privacy surface area that shouldn't gate the core feature.
+- **Not AI-generated initially.** Personalized/AI-drafted drivers are a natural extension (see Future Considerations) but add cloud-AI privacy surface area that shouldn't gate the core feature.
 - **Not gamified.** No streaks, completion counts, or "you haven't updated your drivers in X days" pressure. That cuts against the reflective, positively-framed intent of the feature.
-- **Not tied to push notifications independent of the review cycle in v1.** Drivers surface inside reviews only; a standalone "affirmation of the day" notification is a possible later add-on, not part of this spec.
+- **Not tied to push notifications independent of the review cycle.** Drivers surface inside reviews only; a standalone "affirmation of the day" notification is a Future Consideration.
 
 #### User Stories
 
@@ -294,7 +287,7 @@ Nailed-It currently chains a life vision down through Life Goals, Year Goals, Mo
 
 ### Requirements
 
-#### Must-Have (P0)
+#### MVP
 
 - **Example driver library**: a seeded set of original example drivers, grouped by category (e.g., Productivity, Personal Growth). 
 - **Browse & adopt**: user can browse the library by category and add any example to their personal set.
@@ -304,6 +297,9 @@ Nailed-It currently chains a life vision down through Life Goals, Year Goals, Mo
 - **Display in review**: assigned driver(s) are shown as part of the corresponding review's flow.
 - **Graceful empty state**: reviews with no assigned drivers render normally, with no empty placeholder or nag.
 - **Per-account isolation**: consistent with Nailed-It's existing multi-account, no-cross-account-collaboration model — a user's custom drivers and adoptions are private to their account.
+- **Adopt by Copy**: When a user adopts a driver from the library it is copied to the user's own drivers list so they can edit the wording to suit their circumstances.
+- **Review-type integration**: When the user creates or edits a driver statement they can choose which review schedule to adopt for that statement.
+- **Multiple drivers per review**: When defining a review cycle the user can choose the number of drivers to display per review. The drivers are chosen at random (unless all drivers have been selected to appear) and displayed in a random order.
 
 **Acceptance criteria (representative):**
 - [ ] Given the example library, when a user selects a driver, then it is added to their personal set and becomes editable.
@@ -311,35 +307,21 @@ Nailed-It currently chains a life vision down through Life Goals, Year Goals, Mo
 - [ ] Given a driver assigned to a review, when the user deactivates the driver, then it stops appearing on future reviews but the assignment history is retained.
 - [ ] Given a review with zero assigned drivers, when the user opens that review, then no driver section is shown.
 
-#### Nice-to-Have (P1)
+#### Nice-to-Have
 
 - Markdown text emphasis (bold/italic) for a driver's wording.
 - Simple usage visibility — e.g., last-shown date — so a user can see a driver has gone stale and consider retiring it.
 
-#### Future Considerations (P2)
+#### Future Considerations
 
 - **AI-assisted drafting**: the AI assistant suggests a positively-framed driver, potentially seeded from a goal's WFO "positively formulated outcome" answers (Section 1 of the WFO template) — a natural bridge between WFO and this feature. Must respect the existing "send minimal context" cloud-AI privacy default and the UI indicator for active cloud providers.
 - **Goal-level attachment**: attach a driver to a specific Goal (not just a review type/cadence), so it appears whenever that particular goal is reviewed.
 - **Standalone reminders**: surface a driver via push/email/Telegram independent of the review cycle (e.g., a daily affirmation), reusing the existing notification channels.
 - **Resonance tracking**: let a user mark whether a driver "still resonates," as a lightweight, non-gamified signal for what to keep or retire.
 
-#### Open Questions
-
-
-- **Adopt-by-copy vs. adopt-by-reference**: when a user "adopts" a library driver, it creates a copy that the user can edit the wording of then, or at a later date.
-- **Review-type integration**: When the user creates or edits a driver statement they can choose which review schedule to adopt for that statement.
-- **Multiple drivers per review**: When defining a review cycle the user can choose the number of drivers to display per review. The drivers are chosen at random (unless all drivers have been selected to appear) and displayed in a random order.
-
-#### Timeline Considerations
-
-- No hard deadline — this is explicitly a later-phase feature.
-- **Dependency**: the review scheduling engine (review types/cadences) needs to exist first, since driver display hooks into the review flow.
-- **Dependency**: the example driver library needs original content written before this can ship, even in a minimal form — flagged so it isn't a last-minute blocker.
-- Suggested phasing: ship P0 as a self-contained v1 once the review engine is stable; revisit P1 items as a fast follow; treat P2 (especially AI-assisted drafting) as a natural pairing with any future WFO-to-AI integration work rather than a standalone project.
-
 ### 11. Calendar Integration (Google Calendar, Nextcloud)
 
-**Priority: Version 2** — not part of the v1 minimum viable product. The "Not Included (v1)" list already excludes third-party integrations, including calendar sync, from v1 scope; this section captures that deferred feature in enough detail that it isn't lost.
+**Priority: Nice-to-Have**
 
 #### Problem Statement
 
@@ -355,9 +337,9 @@ Nailed-It's Tasks carry due dates and its Reviews run on a schedule, but both cu
 #### Non-Goals
 
 - **Not a full calendar client.** Nailed-It doesn't display or manage the user's existing external calendar entries — it only publishes events that originate in Nailed-It.
-- **Not two-way task creation (v1 of this feature).** Creating an event directly in Google Calendar or Nextcloud does not create a Nailed-It Task. See Future Considerations.
+- **Not two-way task creation.** Creating an event directly in Google Calendar or Nextcloud does not create a Nailed-It Task. See Future Considerations.
 - **Not a replacement for the review scheduling engine.** Review rules, cadences, and templates continue to be defined and owned inside Nailed-It (Feature 7); calendar events are a read-out of that schedule.
-- **Not real-time by default.** Sub-minute, webhook-driven sync is not assumed for v1 of this feature — see Open Questions on sync mechanism.
+- **Habits are not sync'd.** Habit management, notifications and tracking will remain soley within Nailed-It with no calendar sync.
 
 #### User Stories
 
@@ -377,10 +359,12 @@ Nailed-It's Tasks carry due dates and its Reviews run on a schedule, but both cu
 
 **Must-Have**
 - [ ] User can connect a Google Calendar account via OAuth, or a Nextcloud calendar via CalDAV URL and credentials, as a per-account setting.
-- [ ] A Task with a due date creates a corresponding calendar event on the connected calendar(s) when saved; editing the due date updates the event; deleting or completing the Task removes or updates the event accordingly.
-- [ ] If enabled in the settings, each upcoming scheduled Review occurrence (per Feature 7's scheduling rules) creates a corresponding calendar event on the connected calendar(s).
-- [ ] Sync can be independently enabled or disabled for Tasks and for Reviews.
+- [ ] Sync can be independently enabled or disabled for entities with a Due Date; Goals Tasks and Reviews.
+- [ ] Sync can be enabled or disabled for _all_ Goals, Tasks and Reviews on a per-calendar basis.
+- [ ] If Sync is enabled globally, but Sync All Goals / Tasks / Reviews is disabled then the user can sync individual Goals, Tasks or Reviews.
 - [ ] If a calendar connection becomes invalid (expired OAuth token, rejected CalDAV credentials), the user sees a clear indicator in account settings and can reconnect without losing existing sync links.
+- [ ] The sync mechanism is a background job. The frequency can be set per calendar. 
+- [ ] The user shall be able to trigger a manual sync.
 
 *As the user, I want my due dates and review schedule to just appear on the calendar I already use, so Nailed-It fits into my existing routine instead of asking me to adopt a new one.*
 
@@ -390,21 +374,6 @@ Nailed-It's Tasks carry due dates and its Reviews run on a schedule, but both cu
 
 **Future Considerations**
 - Additional providers: Microsoft 365/Outlook, Apple Calendar (via CalDAV), or a generic read-only ICS feed subscription as a lighter-weight fallback for providers not directly supported.
-- Two-way sync: an event created externally could optionally create a draft Task in Nailed-It, pending the open question below on sync direction.
-
-#### Open Questions
-
-- **Sync direction** — is this push-only (Nailed-It → external calendar), Yes, this is push only. It's not envisaged the it will ever be two-way. **Resolved**
-- **Sync mechanism** — a background job. The frequency of sync can be set for each configured sync calendar separately in the connection settings. **Resolved**
-- **CalDAV scope** — this should be a generic CALDAV client, tested against Nextcloud. **Resolved**
-- **Habit inclusion** — should Habit occurrences be in the Must-Have set for v1 (not v2)? No, Habits is a must have but Habits are not planned to be sync'd. THe application can provide remindrs and tracking for Habits, there's no requirement to put these into a calendar. **Resolved**
-
-#### Timeline Considerations
-
-- Explicitly Version 2 scope, per the PRD's existing "Not Included (v1)" list.
-- Dependency: Task due dates and the Review scheduling engine (Feature 7), including its notification delivery, need to exist and be stable first, since this feature reads from both.
-- Dependency: whichever background worker/scheduler process ends up handling review-cycle triggers is the natural place to also run the calendar sync job, so this is most naturally sequenced after that infrastructure exists rather than built standalone.
-
 
 ## Success Metrics
 
@@ -422,16 +391,19 @@ Since this is a personal tool, "success" means *the system gets used the way it'
 
 ---
 
-## Suggested Phasing
-
-1. **Phase 0 — Foundation**: Django/Docker project setup, SQLite (default) + PostgreSQL config switch, username/password accounts with data isolation.
-2. **Phase 1 — Core hierarchy**: Vision Statement, Goals (Life/Year/Month, SMARTER default), Task hierarchy, Areas of Focus, **Habit Tracking**. This alone is a usable app.
-3. **Phase 2 — Review engine**: Review types, custom scheduling rules, templates, history log, plus notification delivery (browser push, email, Telegram).
-4. **Phase 3 — Vision Board**: mind-map UI over the data model built in Phase 1, with equal-footing web-form entry.
-5. **Phase 4 — Well-Formed Outcome depth**: the optional seven-section extension on top of an existing SMARTER goal, built as a step-by-step wizard, per the finalized template.
-6. **Phase 5 — AI Assistant**: goal critique (grounded in both structure rules and NLP well-formedness), then pattern insight across reviews, with OpenAI/Ollama/LM Studio provider support from the start.
-
 ## Revision History
+
+### Version 0.5 - 04-Sep-2026
+
+- Removed the "Not Included (v1)" and "Suggested Phasing" sections. This content now lives exclusively in roadmap.md.
+- Resolved all remaining Open Questions.
+
+### Version 0.4 - 03-Sep-2026
+
+- Replaced P0/P1/P2 priority labels throughout with MVP / Nice-to-Have / Future Considerations.
+- Removed "Timeline Considerations" from Success Drivers and Calendar Integration.
+- Moved AI Assistant and Calendar Integration to Nice-to-Have priority.
+- Reworded two-factor authentication as a Future Consideration.
 
 ### Version 0.1 - 02-Sep-2026
 
