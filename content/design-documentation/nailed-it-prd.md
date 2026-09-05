@@ -2,8 +2,8 @@
 title: "Nailed-It — Product Requirements Document"
 description: "An overview of the features and requirements for the Nailed-It application."
 draft: false
-revision: "0.5"
-revision_date: "04-Sep-2026"
+revision: "0.6"
+revision_date: "05-Sep-2026"
 ---
 
 
@@ -74,8 +74,14 @@ These weren't part of the original feature list but are now decided, and they sh
 
 **Platform & Deployment**
 - [ ] Built as a Django web application. A PWA is a Future Consideration.
+- [ ] Core UI: Django templates + htmx + Alpine.js
+- [ ] CSS: Tailwind CSS
 - [ ] Initial UI target is desktop; layouts are built responsively from the start so mobile support can follow without a rebuild.
 - [ ] Ships as a Docker stack (app + database + any worker/scheduler process the review-cycle engine needs) for easy self-hosting.
+- [ ] React Flow (@xyflow/react) will be used for the Vision Board, custom node types for Vision/Goal/Task; edges represent hierarchy; mounted as an isolated React component within the Django app
+- [ ] All multi-line text fields shall display as rendered markdown. This will be provided by django-markdownify ti displaay and santize the rendered output. User experieince will be enhanced by enabling the nl2br extension. This ensures a single newline renders as a line break in the markdown output.
+- [ ] Notifications: minimal hand-rolled service worker, scoped to push delivery only.
+- [ ] Testing: pytest, Jenkins CI; Gherkin used only as scenario descriptions in requirements docs, hand-translated into pytest tests (no BDD framework).
 
 **Data Storage**
 - [ ] SQLite is the default database (zero-config, fine for a single self-hosted instance).
@@ -251,7 +257,7 @@ This is the most structurally distinct feature — it needs its own small schedu
 
 ### 10. Success Drivers
 
-**Priority: MVP**
+**Priority: Nice-to-Have**
 
 #### Problem Statement
 
@@ -287,8 +293,6 @@ Nailed-It currently chains a life vision down through Life Goals, Year Goals, Mo
 
 ### Requirements
 
-#### MVP
-
 - **Example driver library**: a seeded set of original example drivers, grouped by category (e.g., Productivity, Personal Growth). 
 - **Browse & adopt**: user can browse the library by category and add any example to their personal set.
 - **Custom authoring**: user can write and save their own driver as free text.
@@ -309,7 +313,6 @@ Nailed-It currently chains a life vision down through Life Goals, Year Goals, Mo
 
 #### Nice-to-Have
 
-- Markdown text emphasis (bold/italic) for a driver's wording.
 - Simple usage visibility — e.g., last-shown date — so a user can see a driver has gone stale and consider retiring it.
 
 #### Future Considerations
@@ -362,7 +365,7 @@ Nailed-It's Tasks carry due dates and its Reviews run on a schedule, but both cu
 - [ ] Sync can be independently enabled or disabled for entities with a Due Date; Goals Tasks and Reviews.
 - [ ] Sync can be enabled or disabled for _all_ Goals, Tasks and Reviews on a per-calendar basis.
 - [ ] If Sync is enabled globally, but Sync All Goals / Tasks / Reviews is disabled then the user can sync individual Goals, Tasks or Reviews.
-- [ ] If a calendar connection becomes invalid (expired OAuth token, rejected CalDAV credentials), the user sees a clear indicator in account settings and can reconnect without losing existing sync links.
+- [ ] If a calendar connection becomes invalid (expired OAuth token, rejected CalDAV credentials), the user sees a clear indicator in the application header and can reconnect without losing existing sync links.
 - [ ] The sync mechanism is a background job. The frequency can be set per calendar. 
 - [ ] The user shall be able to trigger a manual sync.
 
@@ -392,6 +395,12 @@ Since this is a personal tool, "success" means *the system gets used the way it'
 ---
 
 ## Revision History
+
+### Version 0.6 - 05-Sep-2026
+
+- Added requirement to render textrea fields as markdown.
+- Moved Success Drivers priority from MVP to nice-to-have.
+- Updated the calendar sync requirements to show an error in the appliction header if the sync is failing.
 
 ### Version 0.5 - 04-Sep-2026
 
