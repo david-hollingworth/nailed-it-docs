@@ -3,7 +3,7 @@ title: "07 Structured Review Cycle"
 description: "Scheduled and ad-hoc reviews that reference and update goals, tasks, and habits"
 draft: false
 revision: "1.0"
-revision_date: "02-Sep-2026"
+revision_date: "13-Sep-2026"
 ---
 
 The review cycle is the most structurally distinct feature area — it needs its own
@@ -111,6 +111,10 @@ tasks).
 
 ## Revision History
 
-### Version 1.0 - 02-Sep-2026
+### Version 1.0 - 13-Sep-2026
+
+- Approved at version 1.0.
+
+### Version 0.1 - 02-Sep-2026
 
 - Initial version, derived from the Nailed-It PRD v1.0.

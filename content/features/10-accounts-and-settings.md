@@ -3,7 +3,7 @@ title: "10 Accounts and Settings"
 description: "Registration, login, notification channels, and AI provider configuration"
 draft: false
 revision: "1.0"
-revision_date: "02-Sep-2026"
+revision_date: "13-Sep-2026"
 ---
 
 Unlike Features 01–09, this file is not numbered against one of the PRD's
@@ -96,8 +96,47 @@ full goal/review history. The UI indicates when a cloud provider is in use for a
 request, versus a local one. See also
 [FEAT-0804 - Assistant data access scope](/nailed-it-docs/features/08-ai-assistant#feat-0804-assistant-data-access-scope).
 
+## FEAT-1006 Ascending due date cascade setting
+
+| | |
+|---|---|
+| **Status** | Draft |
+| **Phase** | 1 |
+| **Extends** | [FEAT-0003 - Edit entity](/nailed-it-docs/features/00-base-entity-features#feat-0003-edit-entity) |
+
+### Description
+
+Controls the ascending case of
+[00 Base Entity Features, FEAT-0005](/nailed-it-docs/features/00-base-entity-features#feat-0005-due-date-consistency-across-the-entity-tree)'s
+due date consistency check — where an edit or re-parent pushes an entity's date
+later than one of its ancestors'. Default: **ON**.
+
+## FEAT-1007 Descending due date cascade setting
+
+| | |
+|---|---|
+| **Status** | Draft |
+| **Phase** | 1 |
+| **Extends** | [FEAT-0003 - Edit entity](/nailed-it-docs/features/00-base-entity-features#feat-0003-edit-entity) |
+
+### Description
+
+Controls the descending case of
+[00 Base Entity Features, FEAT-0005](/nailed-it-docs/features/00-base-entity-features#feat-0005-due-date-consistency-across-the-entity-tree)'s
+due date consistency check — where an edit or re-parent pulls an ancestor's date
+earlier than one or more of its descendants'. Default: **OFF**.
+
 ## Revision History
 
-### Version 1.0 - 02-Sep-2026
+### Version 1.0 - 13-Sep-2026
+
+- Approved at version 1.0.
+
+### Version 0.2 - 07-Sep-2026
+
+- Added FEAT-1006 and FEAT-1007: the ascending (default ON) and descending (default
+  OFF) due date cascade settings referenced by 00 Base Entity Features, FEAT-0005.
+
+### Version 0.1 - 02-Sep-2026
 
 - Initial version, derived from the Nailed-It PRD v1.0.

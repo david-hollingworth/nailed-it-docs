@@ -3,7 +3,7 @@ title: "08 AI Assistant"
 description: "Goal critique and pattern insight, on a swappable AI provider backend"
 draft: false
 revision: "1.0"
-revision_date: "02-Sep-2026"
+revision_date: "13-Sep-2026"
 ---
 
 The AI assistant is valuable but depends on the rest of the data model existing first
@@ -87,6 +87,10 @@ No assistant feature assumes a specific provider.
 
 ## Revision History
 
-### Version 1.0 - 02-Sep-2026
+### Version 1.0 - 13-Sep-2026
+
+- Approved at version 1.0.
+
+### Version 0.1 - 02-Sep-2026
 
 - Initial version, derived from the Nailed-It PRD v1.0.

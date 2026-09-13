@@ -7,8 +7,7 @@ revision_date: "04-Sep-2026"
 weight: 5
 ---
 
-This roadmap works from a single assumption, to be confirmed as the PRD is tidied
-up: **Versions sit above Phases.** A Phase is a development cycle *within* a software release Version — Version 1 isn't "done" until
+This roadmap works from a single assumption: **Versions sit above Phases.** A Phase is a development cycle *within* a software release Version — Version 1 isn't "done" until
 all of Phase 0 through Phase 4 have shipped. A Version boundary (Version 1, Version
 2, ...) is a higher-level release boundary, used for scope explicitly deferred past
 the initial release, such as [Calendar Integration](/nailed-it-docs/features/12-calendar-integration).

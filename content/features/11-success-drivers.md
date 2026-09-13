@@ -3,7 +3,7 @@ title: "11 Success Drivers"
 description: "Personally-chosen affirmation statements a user attaches to their reviews"
 draft: false
 revision: "1.0"
-revision_date: "03-Sep-2026"
+revision_date: "13-Sep-2026"
 ---
 
 Success Drivers add an affective, identity-level layer on top of the existing
@@ -13,16 +13,6 @@ example library or written from scratch — that a user can attach to one or mor
 their [reviews](/nailed-it-docs/features/07-review-cycle) to reinforce mindset
 alongside progress-tracking. The feature is entirely optional and low-friction: it
 adds motivational texture to a review, never a required step.
-
-#### Note on priority and phasing
-
-The PRD marks this feature Priority P0 ("core to the base product") but also states
-it explicitly as "a later-phase feature" dependent on the review scheduling engine
-being stable first, and the PRD's Suggested Phasing section was not updated to
-include it. **Phase 6** and **Phase 7** are introduced here — extending the PRD's
-existing 0–5 phase numbering — to reflect that stated dependency. This is flagged as
-an assumption, consistent with the PRD's own practice of flagging details the source
-material didn't fully specify.
 
 ## Non-Goals
 
@@ -67,12 +57,6 @@ their personal set. Adopting a library driver creates an editable copy — the u
 copy is independent of the library entry from that point on (adopt-by-copy, not
 adopt-by-reference).
 
-#### Acceptance criteria
-
-- Given the example library
-- When a user selects a driver
-- Then it is added to their personal set and becomes editable
-
 ## FEAT-1103 Custom driver authoring
 
 | | |
@@ -100,12 +84,6 @@ The user can edit the wording of any driver in their personal set, whether
 library-derived or custom, and deactivate (soft-delete) a driver without losing its
 history.
 
-#### Acceptance criteria
-
-- Given a driver assigned to a review
-- When the user deactivates the driver
-- Then it stops appearing on future reviews, but the assignment history is retained
-
 ## FEAT-1105 Review assignment
 
 | | |
@@ -119,12 +97,6 @@ The user can attach a driver to one or more of their configured review
 types/cadences, and remove that assignment later. This can be done from the driver
 itself (choosing which review schedule(s) it should appear on when creating or
 editing it) as well as from the review side.
-
-#### Acceptance criteria
-
-- Given a personal driver
-- When a user assigns it to a review type
-- Then it appears on that review's next occurrence
 
 ## FEAT-1106 Display in review
 
@@ -169,12 +141,6 @@ started (browse the library or write a custom one) — not a blank screen.
 A review with no drivers assigned to it renders normally, with the driver section
 omitted entirely — no empty placeholder and no prompt to add one. The feature must
 never feel like a required field.
-
-#### Acceptance criteria
-
-- Given a review with zero assigned drivers
-- When the user opens that review
-- Then no driver section is shown
 
 ## FEAT-1109 Per-account isolation
 
@@ -221,7 +187,7 @@ tracked streak or count — consistent with the feature's Non-Goals above.
 
 ## Future Considerations
 
-The following ideas are explicitly deferred (PRD Priority P2) and are not yet
+The following ideas are explicitly deferred and are not yet
 committed to a build phase. They are listed here for traceability, not as specified
 features:
 
@@ -242,6 +208,15 @@ features:
 
 ## Revision History
 
-### Version 1.0 - 03-Sep-2026
+### Version 1.0 - 13-Sep-2026
+
+- Approved at version 1.0.
+
+### Version 0.2 - 13-Sep-2026
+
+- Removed acceptance criteria from this document. These do not follow the layout of the other feature documents
+and belong in the requirements documents.
+
+### Version 0.1 - 03-Sep-2026
 
 - Initial version, derived from the Nailed-It PRD v2.0, Section 10 (Success Drivers).

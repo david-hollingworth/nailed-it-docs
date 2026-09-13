@@ -2,8 +2,8 @@
 title: "Nailed-It — Product Requirements Document"
 description: "An overview of the features and requirements for the Nailed-It application."
 draft: false
-revision: "0.6"
-revision_date: "05-Sep-2026"
+revision: "1.0"
+revision_date: "13-Sep-2026"
 ---
 
 
@@ -56,11 +56,11 @@ Feature 4 below builds these directly into the Well-Formed Outcome deep-dive. Th
 - **User** — an account (username + password). All other entities below belong to exactly one User; there is no cross-account data access.
 - **Vision Statement** — single, top-level free-text statement. One per user (versioned so history is kept when edited).
 - **Vision Board** — a free-form mind-map canvas. Nodes can represent Life Areas or Goals; edges express "this goal serves this life area" or "this life area serves the vision."
-- **Life Area** — a category (e.g., Health, Career, Relationships, Finance). Goals and Tasks are tagged with one or more Life Areas.
-- **Goal** — always carries core SMARTER fields (Specific, Measurable, Achievable, Relevant, Time-bound, Evaluated, Reviewed). Has a time horizon: **Life, Year, or Month** — Life Goals are the top-level goal type; Year Goals roll up to a parent Life Goal; Month Goals roll up to a parent Year Goal. **NB**: Goals can have sub-goals. If a goal have a very large impact it is sometimes helpful to break it down into a number of sub-goals before considering the tasks. Sub-goals are still bound to life, year or month.
+- **Life Area** — a category (e.g., Health, Career, Relationships, Finance). How an entity gets one differs by type: a Goal carries its own independent primary Life Area plus zero or more optional Impacted Life Areas; a Task derives its Life Area, live, from the Goal it belongs to rather than carrying its own; a Habit does the same while linked to a Goal, or carries its own independent tag(s) when standalone.
+- **Goal** — always carries core SMARTER fields (Specific, Measurable, Achievable, Relevant, Time-bound, Evaluated, Reviewed). The goal hierarchy is flexible and recursive: a Goal can have any number of sub-goals, and a sub-goal can have its own sub-goals in turn, with no fixed depth or required structure — a large or high-impact Goal is often usefully broken down into several sub-goals, each covering a different objective, before tasks are considered. A sub-goal isn't necessarily a smaller time-slice of its parent; siblings can share the same target timeframe while covering different scope. The Time-bound field is captured as a duration — years and months — rather than a calendar date (e.g. "within 5 years," not "by 7 September 2031"), which the application converts into a stored target date. Terms like Life, Year, Month, or Decade are useful planning vocabulary for talking through how far out a goal sits, but the application doesn't store, calculate, or filter by any such label — only the resulting target date is real.
 - **Well-Formed Outcome Detail** — optional one-to-one extension of a Goal, added when the user opts into the deeper reflective pass. Each of the ~30 sub-questions across the template's seven sections is its own stored field (not one free-text block per section), so the AI assistant and review flows can reference specific answers individually. Presence of this record is what "has Well-Formed Outcome depth" means — it does not replace or duplicate the Goal's SMARTER fields.
-- **Task** — inherits from Goal (same base fields: title, description, life area(s), status, due date) plus task-specific attributes (e.g., estimated effort, recurrence, sub-task list, completion date). This mirrors the "task hierarchy needed to achieve goals" requirement directly.
-- **Habit** — a recurring behavior, distinct from a Goal/Task rather than a special case of one. Has a cadence (daily, weekly, N times per week, or specific days), optional Life Area tag(s), and an optional link to the Goal it serves. Streaks and completion rate are computed from its log, not stored redundantly.
+- **Task** — inherits from Goal's base fields (title, description, status, due date) plus task-specific attributes (e.g., estimated effort, recurrence, sub-task list, completion date). Its Life Area is not one of the inherited fields: a Task has no independent Life Area of its own, and instead derives one, live, from the Goal it belongs to (see Life Area, above). This mirrors the "task hierarchy needed to achieve goals" requirement directly.
+- **Habit** — a recurring behavior, distinct from a Goal/Task rather than a special case of one. Has a cadence (daily, weekly, N times per week, or specific days), and an optional link to the Goal it serves. Its Life Area depends on that link: while linked to a Goal, it derives one live from that Goal, the same as a Task; standalone, it carries its own independent Life Area tag(s) instead (see Life Area, above). Streaks and completion rate are computed from its log, not stored redundantly.
 - **Habit Log** — one check-in record per Habit per day: completed (and optionally a count, for quantity-based habits like "8 glasses of water"), plus an optional note.
 - **Review** — an instance of a review cycle. Has a `type` (Daily / Weekly / Monthly / Yearly / Ad-hoc), a `schedule_rule` (see Feature 7 below), a template of prompts, and a log of past completed reviews.
 - **AI Suggestion** — a record of an AI-generated insight or recommendation, linked to the Goal/Review it was generated for, with an accepted/dismissed state.
@@ -135,17 +135,18 @@ Some people think visually, some think in lists — Goals and Life Areas can be 
 
 ---
 
-### 3. Goals by Life, Year, and Month
+### 3. Goal Hierarchy and Time-bound Targets
 
 **Priority: MVP**
 
-- [ ] Goals can be created at a Life, Year, or Month horizon. **Life Goals are the top-level goal type** — every Year Goal rolls up to a parent Life Goal, and every Month Goal rolls up to a parent Year Goal.
-- [ ] A Life Goal can have child Year Goals; a Year Goal can have child Month Goals. Progress on child goals is visible from each parent, all the way up to the Life Goal.
-- [ ] At all levels goals can have sub-goals. For example a Life Goal might have several Year Goals and each of these might have Month Goals. Sub-goals can be created at the same or lower level. 
-- [ ] Calendar/timeline view showing goals by year and by month, plus a simple overview listing Life Goals as the top of the hierarchy.
-- [ ] Goals can be reassigned to a different month/year, or re-parented to a different Life/Year goal, without losing history.
+- [ ] The goal hierarchy is flexible and recursive: a Goal can have any number of sub-goals, and a sub-goal can have its own sub-goals in turn, at any depth — there is no fixed three-tier structure and no required parent tier.
+- [ ] A sub-goal is not necessarily a smaller time-slice of its parent. A large or high-impact goal can be broken down into several sub-goals covering different objectives, which may share the same target timeframe as their parent rather than each being a shorter step toward it.
+- [ ] A Goal with sub-goals shows rolled-up progress from its children, at whatever depth of nesting exists.
+- [ ] When setting or editing a Goal's Time-bound value, the user specifies a duration — years and months — rather than a calendar date (e.g. "within 5 years"). The application converts this into a stored target date.
+- [ ] Calendar/timeline view showing Goals positioned by their target date, zoomable between a broader and finer view, plus a simple overview listing top-level Goals (those with no parent) alongside their nested sub-goals.
+- [ ] Goals can have their target date changed, or be re-parented to a different Goal (or made top-level), without losing history.
 
-*As the user, I want my life goals to break down into yearly and then monthly steps so that long-range ambitions become plannable in the near term.*
+*As the user, I want to break a big ambition down into sub-goals however makes sense for that goal — by objective, by scope, or by time — rather than being forced into a fixed Life/Year/Month structure that doesn't always fit.*
 
 ---
 
@@ -181,9 +182,9 @@ Well-Formed Outcome isn't a separate, mutually-exclusive goal structure sitting 
 
 **Priority: MVP**
 
-- [ ] Tasks inherit Goal's base fields (title, description, life area tagging, status) and extend with task-specific attributes: estimated effort/duration, recurrence rule, checklist of sub-tasks, actual completion date.
+- [ ] Tasks inherit Goal's base fields (title, description, status, due date) and extend with task-specific attributes: estimated effort/duration, recurrence rule, checklist of sub-tasks, actual completion date. A Task's Life Area is not one of these inherited fields — it has no independent Life Area of its own, and instead derives one, live, from the Goal it's linked to.
 - [ ] Tasks link to exactly one parent Goal (a task exists to serve a goal — no orphan tasks, consistent with Goal 1 above).
-- [ ] Tasks can be nested (sub-tasks) at least one level deep. Sub-tasks are linked to parent tasks, not to goals.
+- [ ] Tasks can be nested (sub-tasks) to an unlimited depth. Sub-tasks are linked to parent tasks, not to goals.
 - [ ] Task status (Not started / In progress / Done / Blocked) rolls up into a visible completion percentage on the parent Goal or parent Task.
 
 *As the user, I want my day-to-day tasks structurally tied to the goal they serve so that I always know why I'm doing something.*
@@ -243,7 +244,7 @@ This is the most structurally distinct feature — it needs its own small schedu
 
 **Priority: MVP**
 
-- [ ] User can create a Habit: title, optional description, optional Life Area tag(s), and link it to the parent Goal it serves (e.g., a "Meditate daily" habit supporting a "Mental Health" Life Area or a specific Year Goal).
+- [ ] User can create a Habit: title, optional description, and an optional link to the parent Goal it serves. A linked Habit derives its Life Area live from that Goal, same as a Task; a standalone Habit (no linked Goal) carries its own independent Life Area tag(s) instead.
 - [ ] Cadence is configurable: daily, weekly, a target count per week (e.g., "3x/week"), or specific days of the week.
 - [ ] User can check in on a Habit for a given day — a simple done/not-done by default, or a count for quantity-based habits (e.g., glasses of water), plus an optional note.
 - [ ] Current streak and a completion-rate view (e.g., last 30 days) are shown, computed from the check-in log rather than stored as separate mutable state that could drift out of sync.
@@ -396,6 +397,41 @@ Since this is a personal tool, "success" means *the system gets used the way it'
 
 ## Revision History
 
+### Version 1.0 - 13-Sep-2026
+
+- Approved at version 1.0.
+
+### Version 0.9 - 13-Sep-2026
+
+- Fixed a long-stale line in Core Data Model ("Goals and Tasks are tagged with one
+  or more Life Areas") that was never updated when Primary/Impacted Life Areas was
+  introduced — same fix applied to the Task and Habit entries, and to the matching
+  bullets in Feature 5 and Feature 9. Now states how each entity type actually gets
+  its Life Area: Goal (independent primary + impacted), Task and Goal-linked Habit
+  (derived live from the Goal), standalone Habit (independent tags).
+
+### Version 0.8 - 07-Sep-2026
+
+- Dropped Life/Year/Month as a calculated or stored label entirely (the previous
+  revision still implied the app computed and displayed a tier) — it's now explicitly
+  informal planning vocabulary only. Added the duration-based (years + months)
+  Time-bound input, converted to a stored target date, to both Core Data Model and
+  Feature 3. Renamed Feature 3 from "Goals by Life, Year, and Month" to "Goal
+  Hierarchy and Time-bound Targets" and rewrote it to drop the fixed three-tier
+  requirement (Life Goal top-level, Year rolls up to Life, Month rolls up to Year) in
+  favour of the flexible recursive model. Matching rewrites applied to the detailed
+  feature files: 03 Goal Hierarchy, 00 Base Entity Features (FEAT-0001's due-date
+  note), and 04 Goal Depth (Time-bound capture mechanism).
+
+### Version 0.7 - 06-Sep-2026
+
+- Reworded the Goal entry in Core Data Model to remove the implication that Life,
+  Year, and Month are fixed rungs in the hierarchy with required parent-tier
+  relationships. The goal hierarchy is flexible and recursive (any Goal can have any
+  number of sub-goals, at any depth, not necessarily one tier down from its parent);
+  Life/Year/Month is now described as a calculated label derived from a Goal's own
+  due date, not a structural position.
+
 ### Version 0.6 - 05-Sep-2026
 
 - Added requirement to render textrea fields as markdown.
@@ -414,12 +450,11 @@ Since this is a personal tool, "success" means *the system gets used the way it'
 - Moved AI Assistant and Calendar Integration to Nice-to-Have priority.
 - Reworded two-factor authentication as a Future Consideration.
 
-### Version 0.1 - 02-Sep-2026
-
-- Initial version.
-
 ### Version 0.2 - 03-Sep-2026
 
 - Added section describing the success drivers feature.
 - Addded section for calendar synchronization
 
+### Version 0.1 - 02-Sep-2026
+
+- Initial version.

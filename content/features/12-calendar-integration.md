@@ -2,8 +2,8 @@
 title: "12 Calendar Integration"
 description: "Push-only sync of Task due dates and Review occurrences to Google Calendar or CalDAV"
 draft: false
-revision: "1.1"
-revision_date: "03-Sep-2026"
+revision: "1.0"
+revision_date: "13-Sep-2026"
 ---
 
 Calendar Integration publishes Task due dates and scheduled
@@ -15,28 +15,11 @@ schedule, not a replacement for it.
 
 #### Note on scope
 
-This is **Version 2** scope, per the PRD's "Not Included (v1)" list, which
-specifically excludes third-party integrations including calendar sync from v1.
-Unlike Features 00–11, FEAT items in this file carry a **Version** field rather than
+This is **Version 2** scope, deferred past the initial release per the
+[Roadmap](/nailed-it-docs/roadmap/roadmap#version-2-and-beyond). Unlike Features 00–11, FEAT items in this file carry a **Version** field rather than
 a **Phase** field — Phases 0–5 in the PRD's Suggested Phasing are development cycles
 within Version 1, and this feature sits outside that sequence entirely rather than
 at a later phase within it.
-
-#### Resolved design decisions
-
-The PRD's Open Questions for this feature are resolved as follows, and are reflected
-in the FEAT items below:
-
-- **Sync direction**: push-only (Nailed-It → external calendar). No read-back of
-  changes made directly in the external calendar is planned.
-- **Sync mechanism**: a background job, with sync frequency configurable separately
-  per connected calendar in its connection settings.
-- **CalDAV scope**: a generic CalDAV client, tested against Nextcloud — not a
-  Nextcloud-specific integration.
-- **Habit inclusion**: Habit tracking itself remains a must-have (Feature 9), but
-  Habit occurrences are explicitly **not** synced to a calendar in any tier of this
-  feature. In-app reminders and tracking are considered sufficient; there's no
-  requirement to put Habits on a calendar.
 
 ## Non-Goals
 
@@ -134,7 +117,7 @@ who only wants Reviews on their calendar isn't forced into all-or-nothing sync.
 ### Description
 
 If a calendar connection becomes invalid (an expired Google OAuth token, rejected
-CalDAV credentials), the user sees a clear indicator in account settings and can
+CalDAV credentials), the user sees a clear indicator in the application heading and can
 reconnect without losing existing sync links.
 
 ## FEAT-1206 Per-entity-type calendar targets
@@ -165,10 +148,14 @@ traceability, not as specified features:
 
 ## Revision History
 
-### Version 1.1 - 03-Sep-2026
+### Version 1.0 - 13-Sep-2026
+
+- Approved at version 1.0.
+
+### Version 0.2 - 03-Sep-2026
 
 - Removed the Habit occurrence sync FEAT item and renumbered FEAT-1207 to FEAT-1206. The PRD's resolved "Habit inclusion" open question confirms Habit occurrences are explicitly not synced to a calendar in any tier of this feature, which the previous version had flagged as an unresolved inconsistency.
 
-### Version 1.0 - 03-Sep-2026
+### Version 0.1 - 03-Sep-2026
 
 - Initial version, derived from the Nailed-It PRD v0.3, Section 11 (Calendar Integration).

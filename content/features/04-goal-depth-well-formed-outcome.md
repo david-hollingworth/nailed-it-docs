@@ -3,7 +3,7 @@ title: "04 Goal Depth: SMARTER and Well-Formed Outcome"
 description: "The SMARTER core every goal carries, plus the optional seven-section deep-dive"
 draft: false
 revision: "1.0"
-revision_date: "02-Sep-2026"
+revision_date: "13-Sep-2026"
 ---
 
 Well-Formed Outcome is not a separate, mutually-exclusive goal structure sitting
@@ -29,11 +29,16 @@ alternative structures:
 - Achievable
 - Relevant
 - Time-bound
-- Evaluated
-- Reviewed
+- Evaluate
+- Respond
 
 SMARTER alone is the default for new goals — no extra prompts are shown unless the
 user opts in to Well-Formed Outcome depth.
+
+**Time-bound** is captured as a duration — years and months — rather than a calendar
+date; see
+[03 Goal Hierarchy, FEAT-0301](/nailed-it-docs/features/03-goal-hierarchy#feat-0301-time-bound-target-set-as-a-duration)
+for how that resolves to a stored target date.
 
 ## FEAT-0402 Well-Formed Outcome opt-in
 
@@ -134,6 +139,17 @@ to be configured — this is an enhancement on top of it.
 
 ## Revision History
 
-### Version 1.0 - 02-Sep-2026
+### Version 1.0 - 13-Sep-2026
+
+- Approved at version 1.0.
+
+### Version 0.2 - 07-Sep-2026
+
+- Noted that the Time-bound SMARTER field is captured as a duration (years and
+  months), not a calendar date — cross-referenced to 03 Goal Hierarchy, FEAT-0301,
+  for the mechanics.
+- Updated feature FEAT-0401 so that the letters ER in SMARTER were changed from "Evaluated, Reviewed" to "Evaluate, Respond"
+
+### Version 0.1 - 02-Sep-2026
 
 - Initial version, derived from the Nailed-It PRD v1.0.
