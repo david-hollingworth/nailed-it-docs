@@ -2,7 +2,7 @@
 title: "11 Success Drivers"
 description: "Personally-chosen affirmation statements a user attaches to their reviews"
 draft: false
-revision: "1.0"
+revision: "1.1"
 revision_date: "13-Sep-2026"
 ---
 
@@ -13,6 +13,15 @@ example library or written from scratch — that a user can attach to one or mor
 their [reviews](/nailed-it-docs/features/07-review-cycle) to reinforce mindset
 alongside progress-tracking. The feature is entirely optional and low-friction: it
 adds motivational texture to a review, never a required step.
+
+#### Note on scope
+
+This is **Version 2** scope — see the
+[Roadmap](/nailed-it-docs/roadmap/roadmap#version-2-and-beyond). Version 2's phase
+numbering restarts at 1, independent of Version 1's Phase 0–4 sequence, and hasn't
+been finalized yet; it will be decided once Version 1 is complete or nearly so. FEAT
+items below are marked **Phase: TBD (Version 2)** rather than continuing Version 1's
+numbering as literal "Phase 6"/"Phase 7" values.
 
 ## Non-Goals
 
@@ -30,7 +39,7 @@ adds motivational texture to a review, never a required step.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 6 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -47,7 +56,7 @@ minimal form — flagged in the PRD as a dependency, not a last-minute blocker.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 6 |
+| **Phase** | TBD (Version 2) |
 | **Extends** | [FEAT-0002 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity) |
 
 ### Description
@@ -62,7 +71,7 @@ adopt-by-reference).
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 6 |
+| **Phase** | TBD (Version 2) |
 | **Extends** | [FEAT-0002 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity) |
 
 ### Description
@@ -75,7 +84,7 @@ example library.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 6 |
+| **Phase** | TBD (Version 2) |
 | **Extends** | [FEAT-0003 - Edit entity](/nailed-it-docs/features/00-base-entity-features#feat-0003-edit-entity) |
 
 ### Description
@@ -89,7 +98,7 @@ history.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 6 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -103,7 +112,7 @@ editing it) as well as from the review side.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 6 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -121,7 +130,7 @@ review has more than one assigned driver:
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 6 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -134,7 +143,7 @@ started (browse the library or write a custom one) — not a blank screen.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 6 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -147,7 +156,7 @@ never feel like a required field.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 6 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -160,7 +169,7 @@ cross-account visibility — consistent with Nailed-It's existing multi-account 
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 7 |
+| **Phase** | TBD (Version 2, after the rest of this feature) |
 | **Extends** | [FEAT-0003 - Edit entity](/nailed-it-docs/features/00-base-entity-features#feat-0003-edit-entity) |
 
 ### Description
@@ -172,7 +181,7 @@ A driver's wording supports basic markdown-style emphasis (bold/italic).
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 7 |
+| **Phase** | TBD (Version 2, after the rest of this feature) |
 
 ### Description
 
@@ -207,6 +216,16 @@ features:
   lightweight, non-gamified signal for what to keep or retire.
 
 ## Revision History
+
+### Version 1.1 - 13-Sep-2026
+
+- Changed Phase from 6/7 to TBD (Version 2) on all FEAT items (FEAT-1101–FEAT-1111).
+  Version 1's Phase 0–4 sequence does not continue into Version 2 as previously
+  implied; Version 2's own phase numbering restarts at 1 and is not yet finalized —
+  see the [Roadmap](/nailed-it-docs/roadmap/roadmap#version-2-and-beyond). FEAT-1110
+  and FEAT-1111 retain a note that they're intended after the rest of this feature's
+  items, preserving their prior relative ordering. Added a Note on scope explaining
+  this.
 
 ### Version 1.0 - 13-Sep-2026
 

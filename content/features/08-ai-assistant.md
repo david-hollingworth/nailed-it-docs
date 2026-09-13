@@ -2,7 +2,7 @@
 title: "08 AI Assistant"
 description: "Goal critique and pattern insight, on a swappable AI provider backend"
 draft: false
-revision: "1.0"
+revision: "1.1"
 revision_date: "13-Sep-2026"
 ---
 
@@ -11,12 +11,21 @@ The AI assistant is valuable but depends on the rest of the data model existing 
 features have real data to work with. If no AI provider is configured, AI
 functionality is not visible to the user.
 
+#### Note on scope
+
+This is **Version 2** scope — see the
+[Roadmap](/nailed-it-docs/roadmap/roadmap#version-2-and-beyond). Version 2's phase
+numbering restarts at 1, independent of Version 1's Phase 0–4 sequence, and hasn't
+been finalized yet; it will be decided once Version 1 is complete or nearly so. FEAT
+items below are marked **Phase: TBD (Version 2)** rather than continuing Version 1's
+numbering as a literal "Phase 5."
+
 ## FEAT-0801 Goal critique against SMARTER and Well-Formed Outcome
 
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 5 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -31,7 +40,7 @@ rather than requiring them.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 5 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -45,7 +54,7 @@ row." Insight is described qualitatively, not as a hard analytics dashboard.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 5 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -56,7 +65,7 @@ AI suggestions are presented as accept/dismiss/edit — never silently applied.
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 5 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -76,7 +85,7 @@ indicates when a cloud provider is in use for a given request, versus a local on
 | | |
 |---|---|
 | **Status** | Draft |
-| **Phase** | 5 |
+| **Phase** | TBD (Version 2) |
 
 ### Description
 
@@ -86,6 +95,14 @@ selection, per
 No assistant feature assumes a specific provider.
 
 ## Revision History
+
+### Version 1.1 - 13-Sep-2026
+
+- Changed Phase from 5 to TBD (Version 2) on all FEAT items (FEAT-0801–FEAT-0805).
+  Version 1's Phase 0–4 sequence does not continue into Version 2 as previously
+  implied; Version 2's own phase numbering restarts at 1 and is not yet finalized —
+  see the [Roadmap](/nailed-it-docs/roadmap/roadmap#version-2-and-beyond). Added a
+  Note on scope explaining this.
 
 ### Version 1.0 - 13-Sep-2026
 
