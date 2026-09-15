@@ -4,6 +4,7 @@ description: "Design philosophy and hard specification for the Vision Board: Lif
 draft: false
 revision: "1.0"
 revision_date: "13-Sep-2026"
+weight: 20
 ---
 
 > **Scope note**: This document sits alongside the

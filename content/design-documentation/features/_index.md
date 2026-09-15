@@ -2,7 +2,7 @@
 title: "Features"
 description: "What the application does from the user's perspective"
 draft: false
-weight: 15
+weight: 30
 ---
 
 Each feature describes a discrete area of Nailed-It functionality from the user's
@@ -13,4 +13,4 @@ settings features drawn from the PRD's Technical Foundation section.
 
 **Please note. Nailed-It is in the very early planning stages — every feature below
 is Draft and none has been built yet. Status and Phase reflect the plan set out in
-the PRD's Suggested Phasing, not current implementation progress.**
+the [Roadmap](/nailed-it-docs/roadmap/roadmap/) document, not current implementation progress.**

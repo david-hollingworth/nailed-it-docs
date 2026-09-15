@@ -4,6 +4,7 @@ description: "An overview of the features and requirements for the Nailed-It app
 draft: false
 revision: "1.0"
 revision_date: "13-Sep-2026"
+weight: 10
 ---
 
 
