@@ -11,7 +11,7 @@ than a generic whiteboard. Some people think visually and some think in lists; n
 the board and the underlying Life Area/Goal/Task records stay in sync regardless of
 where they were created, so both are first-class entry points into the same data.
 
-## FEAT-0201 Vision board canvas
+## FEAT-0201 Vision board canvas {#feat-0201}
 
 | | |
 |---|---|
@@ -45,7 +45,7 @@ exactly one primary edge — the canvas must not allow it to be deleted without 
 immediate replacement.
 
 **Impacted Life Areas** (see
-[03 Goal Hierarchy, FEAT-0309](/nailed-it-docs/features/03-goal-hierarchy#feat-0309-impacted-life-areas))
+[03 Goal Hierarchy, FEAT-0309](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0309))
 are visually distinct and not part of this edge model: they render as small icon
 badges on the card, each with its own hover tooltip, and are set via a form, via the
 reconnect/"Make Primary" mechanics above, or automatically as the residue of a
@@ -54,7 +54,7 @@ primary edge.
 
 A **Task** node carries no edge at all, and no Impacted Life Areas — its Life Area
 shows as a single badge only, reflecting its parent Goal's current primary, live
-(see [05 Task Hierarchy, FEAT-0505](/nailed-it-docs/features/05-task-hierarchy#feat-0505-task-life-area)).
+(see [05 Task Hierarchy, FEAT-0505](/nailed-it-docs/design-documentation/features/05-task-hierarchy#feat-0505)).
 
 Full design rationale: [Vision Board — Design Overview](/nailed-it-docs/design-documentation/vision-board-design-overview).
 
@@ -67,7 +67,7 @@ On the Vision Board connections exist between:
 - Tasks and their parent Goal or Sub-Goal
 - Habits and their parent Goal or Sub-Goal
 
-## FEAT-0202 Board and record synchronisation
+## FEAT-0202 Board and record synchronisation {#feat-0202}
 
 | | |
 |---|---|
@@ -78,22 +78,22 @@ On the Vision Board connections exist between:
 
 Creating a Life Area, Goal, Task or Habit node on the board creates the corresponding
 record, and vice versa — Goals and Life Areas created elsewhere (e.g. via the standard
-[create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity)
+[create entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0001)
 form) appear on the board as nodes, connected to any parent node.
 
 #### Note
 
 This synchronisation covers a Goal's primary Life Area edge — including changing it
-via reconnect or "Make Primary" (see [FEAT-0201](#feat-0201-vision-board-canvas))
+via reconnect or "Make Primary" (see [FEAT-0201](#feat-0201))
 — and nothing else Life-Area-related. Impacted Life Area relationships set via the
 form (see
-[03 Goal Hierarchy, FEAT-0309](/nailed-it-docs/features/03-goal-hierarchy#feat-0309-impacted-life-areas))
+[03 Goal Hierarchy, FEAT-0309](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0309))
 are not created or modified by board interactions except where FEAT-0201 says
 otherwise. A Task node's Life Area badge is not something board interactions create
 or modify at all — it's a live reflection of its parent Goal's primary, not an
 independent relationship.
 
-## FEAT-0203 Board persistence
+## FEAT-0203 Board persistence {#feat-0203}
 
 | | |
 |---|---|
@@ -104,7 +104,7 @@ independent relationship.
 
 Board state — all node positions and connections — persists between sessions.
 
-## FEAT-0204 Vision-led hierarchy
+## FEAT-0204 Vision-led hierarchy {#feat-0204}
 
 | | |
 |---|---|
@@ -117,7 +117,7 @@ The board is explicitly framed as a devolving tool rather than a generic whitebo
 The UI nudges the vision → life areas → goals hierarchy — for example, via a root
 node representing the vision statement. All nodes can be repositioned on the canvas.
 
-## FEAT-0205 Minimap navigation
+## FEAT-0205 Minimap navigation {#feat-0205}
 
 | | |
 |---|---|
@@ -143,13 +143,13 @@ Screen placement (corner, size) is an implementation detail, not specified here.
 
 Full design rationale: [Vision Board — Design Overview](/nailed-it-docs/design-documentation/vision-board-design-overview).
 
-## FEAT-0206 Highlight-on-filter interaction
+## FEAT-0206 Highlight-on-filter interaction {#feat-0206}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 3 |
-| **Extends** | [FEAT-1303 - Life Area filter: primary vs. impacted match](/nailed-it-docs/features/13-ui-and-shared-features#feat-1303-life-area-filter-primary-vs-impacted-match) |
+| **Extends** | [FEAT-1303 - Life Area filter: primary vs. impacted match](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features#feat-1303) |
 
 ### Description
 
@@ -157,7 +157,7 @@ Selecting a Life Area from a legend or filter control highlights every card wher
 that Life Area matches — primary (edge) or impacted (badge) for a Goal, or the
 single derived badge for a Task — and dims all other cards, rather than hiding them
 outright. This recovers the clustering insight a bounding-box layout would otherwise
-have given for free, without constraining board layout permanently. See [13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features#feat-1308-per-view-filter-application)
+have given for free, without constraining board layout permanently. See [13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features#feat-1308)
 for how this compares to filter behaviour on other, list-style views.
 
 ## Revision History

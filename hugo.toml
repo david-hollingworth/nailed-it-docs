@@ -26,6 +26,9 @@ disablePathToLower = true
 [markup.goldmark.renderer]
   unsafe = true
 
+[markup.goldmark.parser.attribute]
+  title = true
+
 [markup.highlight]
   style = "monochrome"
 

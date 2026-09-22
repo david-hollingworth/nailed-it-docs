@@ -20,7 +20,7 @@ been finalized yet; it will be decided once Version 1 is complete or nearly so. 
 items below are marked **Phase: TBD (Version 2)** rather than continuing Version 1's
 numbering as a literal "Phase 5."
 
-## FEAT-0801 Goal critique against SMARTER and Well-Formed Outcome
+## FEAT-0801 Goal critique against SMARTER and Well-Formed Outcome {#feat-0801}
 
 | | |
 |---|---|
@@ -31,11 +31,11 @@ numbering as a literal "Phase 5."
 
 Given a goal in progress, the AI assistant can critique it against its SMARTER
 fields (e.g. flag a missing measurable component) and, if
-[Well-Formed Outcome depth](/nailed-it-docs/features/04-goal-depth-well-formed-outcome)
+[Well-Formed Outcome depth](/nailed-it-docs/design-documentation/features/04-goal-depth-well-formed-outcome)
 has been added, against the seven-section framework — noting thin or skipped sections
 rather than requiring them.
 
-## FEAT-0802 Pattern insight from reviews
+## FEAT-0802 Pattern insight from reviews {#feat-0802}
 
 | | |
 |---|---|
@@ -44,12 +44,12 @@ rather than requiring them.
 
 ### Description
 
-During or after a [review](/nailed-it-docs/features/07-review-cycle), the AI
+During or after a [review](/nailed-it-docs/design-documentation/features/07-review-cycle), the AI
 assistant can surface pattern-level insight — for example, "Health goals have been
 rescheduled 3 months running," or "Your meditation habit has slipped 3 weeks in a
 row." Insight is described qualitatively, not as a hard analytics dashboard.
 
-## FEAT-0803 Accept, dismiss, or edit suggestions
+## FEAT-0803 Accept, dismiss, or edit suggestions {#feat-0803}
 
 | | |
 |---|---|
@@ -60,7 +60,7 @@ row." Insight is described qualitatively, not as a hard analytics dashboard.
 
 AI suggestions are presented as accept/dismiss/edit — never silently applied.
 
-## FEAT-0804 Assistant data access scope
+## FEAT-0804 Assistant data access scope {#feat-0804}
 
 | | |
 |---|---|
@@ -77,10 +77,10 @@ history as needed to ground its suggestions.
 When a cloud provider (OpenAI) is active, only the minimum context needed for the
 assistant's current task is sent by default — not the user's full goal/review history
 — per the privacy policy set out in
-[10 Accounts and Settings](/nailed-it-docs/features/10-accounts-and-settings). The UI
+[10 Accounts and Settings](/nailed-it-docs/design-documentation/features/10-accounts-and-settings). The UI
 indicates when a cloud provider is in use for a given request, versus a local one.
 
-## FEAT-0805 Swappable AI provider backend
+## FEAT-0805 Swappable AI provider backend {#feat-0805}
 
 | | |
 |---|---|
@@ -91,7 +91,7 @@ indicates when a cloud provider is in use for a given request, versus a local on
 
 The backend is swappable between OpenAI API, Ollama, and LM Studio, with model
 selection, per
-[FEAT-1005 - AI provider configuration](/nailed-it-docs/features/10-accounts-and-settings#feat-1005-ai-provider-configuration).
+[FEAT-1005 - AI provider configuration](/nailed-it-docs/design-documentation/features/10-accounts-and-settings#feat-1005).
 No assistant feature assumes a specific provider.
 
 ## Revision History

@@ -9,7 +9,7 @@ revision_date: "13-Sep-2026"
 The review cycle is the most structurally distinct feature area — it needs its own
 small scheduling sub-model rather than a single fixed cadence per review type.
 
-## FEAT-0701 Review types and default cadence
+## FEAT-0701 Review types and default cadence {#feat-0701}
 
 | | |
 |---|---|
@@ -22,7 +22,7 @@ The app provides five built-in review types: Daily, Weekly, Monthly, Yearly, and
 Ad-hoc. Each review type has a default cadence, which is user-editable per type — for
 example, the "Monthly" review type can be rescheduled to trigger every two weeks. Daily reviews can be scheduled for both morning and/or afternoon.
 
-## FEAT-0702 Custom review scheduling rules
+## FEAT-0702 Custom review scheduling rules {#feat-0702}
 
 | | |
 |---|---|
@@ -38,7 +38,7 @@ a review of next week's tasks." A rule requires:
 - A time
 - A template (which prompts/scope the review covers)
 
-## FEAT-0703 Review prompt templates
+## FEAT-0703 Review prompt templates {#feat-0703}
 
 | | |
 |---|---|
@@ -51,7 +51,7 @@ Each review type has a default prompt template — for example, the Weekly templ
 might ask "What moved forward this week? What's blocked? What's next week's focus?"
 Templates are editable.
 
-## FEAT-0704 Review history log
+## FEAT-0704 Review history log {#feat-0704}
 
 | | |
 |---|---|
@@ -63,7 +63,7 @@ Templates are editable.
 Completed reviews are logged with a timestamp and responses, viewable as history per
 Life Area or Goal.
 
-## FEAT-0705 In-review goal, task, and habit updates
+## FEAT-0705 In-review goal, task, and habit updates {#feat-0705}
 
 | | |
 |---|---|
@@ -74,10 +74,10 @@ Life Area or Goal.
 
 Reviews can reference and update the Goals and Tasks they touch directly from the
 review screen, rather than only as a separate journal entry. Separately, a review
-notes which [Habits](/nailed-it-docs/features/09-habit-tracking) were kept up or
+notes which [Habits](/nailed-it-docs/design-documentation/features/09-habit-tracking) were kept up or
 slipped during the review period.
 
-## FEAT-0706 Ad-hoc reviews
+## FEAT-0706 Ad-hoc reviews {#feat-0706}
 
 | | |
 |---|---|
@@ -88,7 +88,7 @@ slipped during the review period.
 
 Ad-hoc reviews can be triggered manually at any time, using any existing template.
 
-## FEAT-0707 Scheduled review notifications
+## FEAT-0707 Scheduled review notifications {#feat-0707}
 
 | | |
 |---|---|
@@ -99,7 +99,7 @@ Ad-hoc reviews can be triggered manually at any time, using any existing templat
 
 When a scheduled review rule triggers, the app surfaces that review, notifying via
 whichever channel(s) the user has enabled in their
-[account settings](/nailed-it-docs/features/10-accounts-and-settings) (browser push,
+[account settings](/nailed-it-docs/design-documentation/features/10-accounts-and-settings) (browser push,
 email, and/or Telegram), pre-populated with the relevant scope (e.g. next week's
 tasks).
 

@@ -116,12 +116,12 @@ Once set, it's an ordinary, independently-editable primary like any Goal's; a la
 change to the parent's own primary does not retroactively update it. The user can,
 however, opt into an **optional cascade** at the moment the parent's primary
 changes — a confirmation dialog, in the same shape as the due-date cascade (see
-[03 Goal Hierarchy, FEAT-0311](/nailed-it-docs/features/03-goal-hierarchy#feat-0311-due-date-consistency-across-the-entity-tree)),
+[03 Goal Hierarchy, FEAT-0311](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0311)),
 which offers to update descendant sub-goals still matching the old primary
 (deliberately-diverged ones are left alone), recursing through the full descendant
 chain if accepted. Full mechanics:
-[03 Goal Hierarchy, FEAT-0306](/nailed-it-docs/features/03-goal-hierarchy#feat-0306-sub-goal-primary-life-area-default)
-and [FEAT-0307](/nailed-it-docs/features/03-goal-hierarchy#feat-0307-optional-life-area-cascade-on-primary-change).
+[03 Goal Hierarchy, FEAT-0306](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0306)
+and [FEAT-0307](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0307).
 
 ### Task and Habit: derived, not owned
 
@@ -131,8 +131,7 @@ of its own. A Habit follows the same rule while linked to a Goal, but a Habit's
 Goal link is optional, so a standalone Habit (no linked Goal) keeps its own
 independent, multi-select Life Area tags instead — there's no Goal to derive from.
 Full detail:
-[05 Task Hierarchy, FEAT-0505](/nailed-it-docs/features/05-task-hierarchy#feat-0505-task-life-area)
-and [09 Habit Tracking, FEAT-0907](/nailed-it-docs/features/09-habit-tracking#feat-0907-habit-life-area).
+[05 Task Hierarchy, FEAT-0505](/nailed-it-docs/design-documentation/features/05-task-hierarchy#feat-0505).
 
 This asymmetry matters for the Vision Board specifically: only Goals get a primary
 edge. See **Primary by edge, impacted by decoration**, below.
@@ -141,7 +140,7 @@ edge. See **Primary by edge, impacted by decoration**, below.
 
 The canvas already models Life Areas as their own nodes, with edges as meaningful data
 — this pre-existing design intent (see
-[02 Vision Board](/nailed-it-docs/features/02-vision-board): "edges express 'this goal
+[02 Vision Board](/nailed-it-docs/design-documentation/features/02-vision-board): "edges express 'this goal
 serves this life area'") is retained, not replaced, but scoped to **Goal** nodes
 only — Task nodes carry no edge at all (see **Task and Habit: derived, not owned**,
 above).
@@ -184,7 +183,7 @@ it matches — primary (edge) or impacted (badge) for a Goal, or the single deri
 badge for a Task — and dims the rest.
 
 Board persistence (see
-[FEAT-0203](/nailed-it-docs/features/02-vision-board#feat-0203-board-persistence))
+[FEAT-0203](/nailed-it-docs/design-documentation/features/02-vision-board#feat-0203))
 must therefore persist the Goal's primary edge alongside node position. Impacted
 relationships are not part of this board-state persistence — they persist as
 ordinary `GoalImpactedLifeArea` rows, set via the form (or the mechanics above)
@@ -296,7 +295,7 @@ than for Finances).
 
 Unlike Goal, Task has no relationship rows of its own to persist — its Life Area is
 computed, not stored as a relationship. See
-[05 Task Hierarchy, FEAT-0505](/nailed-it-docs/features/05-task-hierarchy#feat-0505-task-life-area)
+[05 Task Hierarchy, FEAT-0505](/nailed-it-docs/design-documentation/features/05-task-hierarchy#feat-0505)
 for the full rule: it always mirrors its parent Goal's current `primary_life_area`,
 live, rendered on the Vision Board as a single badge with no edge.
 
@@ -336,7 +335,7 @@ did the user say each time."
 
 Abandoning a parent Goal cascades to all its descendants (sub-goals and Tasks) —
 mirroring, not diverging from, the existing cascade-delete assumption in
-[FEAT-0004](/nailed-it-docs/features/00-base-entity-features#feat-0004-delete-entity).
+[FEAT-0003](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0003).
 Without this, abandoning a parent would leave its children active but effectively
 orphaned — Tasks with no Goal still genuinely being pursued above them. Each cascaded
 child gets its own `AbandonmentEvent` row rather than being silently hidden by its
@@ -346,7 +345,7 @@ than copying its reason text verbatim — so the child's record isn't mistaken l
 for an independent decision it wasn't (resolved 13-Sep-2026).
 A user who wants a child to survive the parent's abandonment (or deletion) needs to
 re-parent it first, via the existing Goal reassignment feature
-([FEAT-0305](/nailed-it-docs/features/03-goal-hierarchy#feat-0305-goal-reassignment-and-re-parenting))
+([FEAT-0305](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0305))
 — the cascade itself is not selectively skippable per child.
 
 ---
@@ -458,7 +457,7 @@ either — they sit outside, not inside, the ordinary Status multi-select.
 
 - Repointed the **Sub-goal default, not sync** cross-reference from
   [00 Base Entity Features, FEAT-0005] to
-  [03 Goal Hierarchy, FEAT-0311](/nailed-it-docs/features/03-goal-hierarchy#feat-0311-due-date-consistency-across-the-entity-tree) —
+  [03 Goal Hierarchy, FEAT-0311](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0311) —
   the due-date cascade feature relocated there, since it was never actually shared
   with Life Area or Habit.
 

@@ -9,21 +9,19 @@ revision_date: "20-Sep-2026"
 Habits are a recurring behaviour, distinct from a Goal or Task rather than a special
 case of one — many goals are achieved through repetition rather than a single task.
 
-## FEAT-0901 Habit creation and cadence
+## FEAT-0901 Habit creation and cadence {#feat-0901}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0002 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity) |
+| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0001) |
 
 ### Description
 
 The user can create a Habit with a title, an optional description, and a
-link to the parent [Goal](/nailed-it-docs/features/03-goal-hierarchy) it serves
-(e.g. a "Meditate daily" habit supporting a specific Goal, or standing alone). Its
-Life Area is set differently depending on that link — see
-[FEAT-0907](#feat-0907-habit-life-area) below.
+link to the parent [Goal](/nailed-it-docs/design-documentation/features/03-goal-hierarchy) it serves
+(e.g. a "Meditate daily" habit supporting a specific Goal, or standing alone).
 
 Cadence is configurable as one of:
 
@@ -32,7 +30,7 @@ Cadence is configurable as one of:
 - A target count per time period (e.g. "3x/week")
 - Specific days of the week
 
-## FEAT-0902 Habit check-in
+## FEAT-0902 Habit check-in {#feat-0902}
 
 | | |
 |---|---|
@@ -47,7 +45,7 @@ The user can check in on a Habit for a given day:
 - A count for quantity-based habits (e.g. glasses of water)
 - An optional note
 
-## FEAT-0903 Streak and completion-rate calculation
+## FEAT-0903 Streak and completion-rate calculation {#feat-0903}
 
 | | |
 |---|---|
@@ -60,7 +58,7 @@ Current streak and a completion-rate view (e.g. last 30 days) are shown, compute
 from the check-in log rather than stored as separate mutable state that could drift
 out of sync.
 
-## FEAT-0904 Habit archiving
+## FEAT-0904 Habit archiving {#feat-0904}
 
 | | |
 |---|---|
@@ -72,7 +70,7 @@ out of sync.
 Habits can be archived (deactivated) without losing their historical log —
 consistency history matters even after a habit is dropped or retired.
 
-## FEAT-0905 Habit visibility
+## FEAT-0905 Habit visibility {#feat-0905}
 
 | | |
 |---|---|
@@ -82,11 +80,11 @@ consistency history matters even after a habit is dropped or retired.
 ### Description
 
 Habits are visible from the
-[Areas of Focus](/nailed-it-docs/features/06-areas-of-focus) view, grouped by Life
+[Areas of Focus](/nailed-it-docs/design-documentation/features/06-areas-of-focus) view, grouped by Life
 Area alongside Goals and Tasks, and from the linked Goal's detail view when one is
 set.
 
-## FEAT-0906 Habit check-in reminders
+## FEAT-0906 Habit check-in reminders {#feat-0906}
 
 | | |
 |---|---|
@@ -97,7 +95,7 @@ set.
 
 Habit check-in reminders use the same notification channels as reviews (browser
 push, email, Telegram — see
-[10 Accounts and Settings](/nailed-it-docs/features/10-accounts-and-settings)), on
+[10 Accounts and Settings](/nailed-it-docs/design-documentation/features/10-accounts-and-settings)), on
 the habit's own cadence rather than the review schedule.
 
 #### Note

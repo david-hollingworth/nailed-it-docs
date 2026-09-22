@@ -12,7 +12,7 @@ reflective pass, not a replacement for it. Every goal always carries its SMARTER
 Well-Formed Outcome adds seven extra layers of scrutiny on request, matching the
 Well-Formed Outcomes template exactly.
 
-## FEAT-0401 SMARTER core fields
+## FEAT-0401 SMARTER core fields {#feat-0401}
 
 | | |
 |---|---|
@@ -41,10 +41,10 @@ A Goal can be saved in an Inactive state before all the SMARTER fields are compl
 
 **Time-bound** is captured as a duration — years and months — rather than a calendar
 date; see
-[03 Goal Hierarchy, FEAT-0301](/nailed-it-docs/features/03-goal-hierarchy#feat-0301-time-bound-target-set-as-a-duration)
+[03 Goal Hierarchy, FEAT-0301](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0301)
 for how that resolves to a stored target date.
 
-## FEAT-0402 Well-Formed Outcome opt-in
+## FEAT-0402 Well-Formed Outcome opt-in {#feat-0402}
 
 | | |
 |---|---|
@@ -57,7 +57,7 @@ A goal can optionally have Well-Formed Outcome depth added — a one-to-one exte
 record, not a different goal type — toggled on or off per goal at any time, without
 affecting or duplicating the SMARTER fields already captured.
 
-## FEAT-0403 Well-Formed Outcome guided wizard
+## FEAT-0403 Well-Formed Outcome guided wizard {#feat-0403}
 
 | | |
 |---|---|
@@ -94,7 +94,7 @@ goal-entry flow. Each sub-question saves to its own field.
    you don't? What will *stop* happening if you achieve it? What will *stop* happening
    if you don't?
 
-## FEAT-0404 Optional, non-blocking fields
+## FEAT-0404 Optional, non-blocking fields {#feat-0404}
 
 | | |
 |---|---|
@@ -107,20 +107,20 @@ Each Well-Formed Outcome sub-question can be left blank. This is a reflective to
 not a validation gate — the app does not block saving a goal because Well-Formed
 Outcome fields are incomplete.
 
-## FEAT-0405 Convert Well-Formed Outcome actions into tasks
+## FEAT-0405 Convert Well-Formed Outcome actions into tasks {#feat-0405}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 4 |
-| **Extends** | [FEAT-0002 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity) |
+| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0001) |
 
 ### Description
 
-Any actions that are idedntified during the Well-Formed Outcome process can optionally be turned directly into one or more [Tasks](/nailed-it-docs/features/05-task-hierarchy) under
+Any actions that are idedntified during the Well-Formed Outcome process can optionally be turned directly into one or more [Tasks](/nailed-it-docs/design-documentation/features/05-task-hierarchy) under
 the goal — a natural bridge into the task hierarchy.
 
-## FEAT-0406 AI-assisted question refinement
+## FEAT-0406 AI-assisted question refinement {#feat-0406}
 
 | | |
 |---|---|
@@ -130,7 +130,7 @@ the goal — a natural bridge into the task hierarchy.
 ### Description
 
 If an AI provider is configured (see
-[08 AI Assistant](/nailed-it-docs/features/08-ai-assistant)), each Well-Formed Outcome
+[08 AI Assistant](/nailed-it-docs/design-documentation/features/08-ai-assistant)), each Well-Formed Outcome
 question allows the user to chat with the AI to refine their response before saving
 it.
 

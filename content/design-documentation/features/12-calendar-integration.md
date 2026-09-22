@@ -7,7 +7,7 @@ revision_date: "22-Sep-2026"
 ---
 
 Calendar Integration publishes Task due dates and scheduled
-[Review](/nailed-it-docs/features/07-review-cycle) occurrences outward to a calendar
+[Review](/nailed-it-docs/design-documentation/features/07-review-cycle) occurrences outward to a calendar
 the user already checks — Google Calendar, or a generic CalDAV calendar (tested
 against Nextcloud). Nailed-It's own review scheduling engine remains the single
 source of truth for when a review happens; calendar sync is a read-out of that
@@ -30,21 +30,21 @@ at a later phase within it.
   CalDAV calendar does not create a Nailed-It Task.
 - **Not a replacement for the review scheduling engine** — review rules, cadences,
   and templates continue to be defined and owned inside
-  [07 Structured Review Cycle](/nailed-it-docs/features/07-review-cycle); calendar
+  [07 Structured Review Cycle](/nailed-it-docs/design-documentation/features/07-review-cycle); calendar
   events are a read-out of that schedule.
 - **Not real-time** — sync runs as a background job on a configurable interval, not
   via sub-minute webhook-driven push.
 - **Not Habit calendar sync** — Habits are tracked and reminded in-app only (see
-  [09 Habit Tracking](/nailed-it-docs/features/09-habit-tracking)); Habit occurrences
+  [09 Habit Tracking](/nailed-it-docs/design-documentation/features/09-habit-tracking)); Habit occurrences
   are not synced to external calendars.
 
-## FEAT-1201 Connect a calendar provider
+## FEAT-1201 Connect a calendar provider {#feat-1201}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Version** | 2 |
-| **Extends** | [FEAT-0002 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity) |
+| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0001) |
 
 ### Description
 
@@ -60,14 +60,14 @@ frequency setting, since sync runs as a background job rather than in real time.
 #### Note
 
 Mirrors the existing
-[AI Provider Config](/nailed-it-docs/features/10-accounts-and-settings#feat-1005-ai-provider-configuration)
+[AI Provider Config](/nailed-it-docs/design-documentation/features/10-accounts-and-settings#feat-1005)
 pattern: the provider is a per-account setting, not hardcoded. A Calendar Provider
 Config record holds the connection details, and a Calendar Sync Link record maps
 each synced Task or Review occurrence to its external calendar event, so updates and
 deletes are idempotent and a broken link can be detected if the external event is
 removed independently.
 
-## FEAT-1202 Task due-date sync
+## FEAT-1202 Task due-date sync {#feat-1202}
 
 | | |
 |---|---|
@@ -79,7 +79,7 @@ removed independently.
 A Task with a due date creates a corresponding calendar event on the connected
 calendar(s) when saved. Editing the due date in Nailed-It updates the event in the calendar; deleting or completing the Task removes or updates the event in the calendar accordingly.
 
-## FEAT-1203 Review occurrence sync
+## FEAT-1203 Review occurrence sync {#feat-1203}
 
 | | |
 |---|---|
@@ -89,24 +89,24 @@ calendar(s) when saved. Editing the due date in Nailed-It updates the event in t
 ### Description
 
 If enabled in settings, each upcoming scheduled
-[Review](/nailed-it-docs/features/07-review-cycle) occurrence creates a
+[Review](/nailed-it-docs/design-documentation/features/07-review-cycle) occurrence creates a
 corresponding calendar event on the connected calendar(s), per the review's
 scheduling rule.
 
-## FEAT-1204 Per-entity-type sync toggle
+## FEAT-1204 Per-entity-type sync toggle {#feat-1204}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Version** | 2 |
-| **Extends** | [FEAT-0003 - Edit entity](/nailed-it-docs/features/00-base-entity-features#feat-0003-edit-entity) |
+| **Extends** | [FEAT-0002 - Edit entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0002) |
 
 ### Description
 
 Sync can be independently enabled or disabled for Tasks and for Reviews, so a user
 who only wants Reviews on their calendar isn't forced into all-or-nothing sync.
 
-## FEAT-1205 Broken connection indicator
+## FEAT-1205 Broken connection indicator {#feat-1205}
 
 | | |
 |---|---|
@@ -119,13 +119,13 @@ If a calendar connection becomes invalid (an expired Google OAuth token, rejecte
 CalDAV credentials), the user sees a clear indicator in the application heading and can
 reconnect without losing existing sync links.
 
-## FEAT-1206 Per-entity-type calendar targets
+## FEAT-1206 Per-entity-type calendar targets {#feat-1206}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Version** | 2 |
-| **Extends** | [FEAT-1201 - Connect a calendar provider](#feat-1201-connect-a-calendar-provider) |
+| **Extends** | [FEAT-1201 - Connect a calendar provider](#feat-1201) |
 
 ### Description
 

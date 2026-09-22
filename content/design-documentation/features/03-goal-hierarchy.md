@@ -9,9 +9,9 @@ revision_date: "19-Sep-2026"
 Goal and Task share a large common core — base fields, due date consistency across
 the tree, and lifecycle (Abandon/Recommit, Archive, Stale/Needs Review) — defined
 here since neither is genuinely shared with Life Area or Habit; see
-[05 Task Hierarchy](/nailed-it-docs/features/05-task-hierarchy) for how Task extends
+[05 Task Hierarchy](/nailed-it-docs/design-documentation/features/05-task-hierarchy) for how Task extends
 each shared piece. The create/edit/delete lifecycle that Life Area and Habit *do*
-share stays in [00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features).
+share stays in [00 Base Entity Features](/nailed-it-docs/design-documentation/features/00-base-entity-features).
 
 The goal hierarchy is flexible and recursive: a Goal can have any number of sub-goals,
 and a sub-goal can have its own sub-goals in turn, with no fixed depth or required
@@ -22,16 +22,16 @@ Decade are useful planning vocabulary for talking about how far out a goal sits,
 they are not stored fields, not enforced parent/child rules, and nothing the
 application calculates or filters by — see Revision History for what this replaces.
 Goals always carry their SMARTER fields — see
-[04 Goal Depth](/nailed-it-docs/features/04-goal-depth-well-formed-outcome) for how
+[04 Goal Depth](/nailed-it-docs/design-documentation/features/04-goal-depth-well-formed-outcome) for how
 that works alongside the optional Well-Formed Outcome deep-dive.
 
-## FEAT-0301 Time-bound target set as a duration
+## FEAT-0301 Time-bound target set as a duration {#feat-0301}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0001-create-entity) |
+| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0001) |
 
 ### Description
 
@@ -49,7 +49,7 @@ genuine point in the future.
 
 When the Time-bound value for a goal is changed then the application recalculates the stored due date.
 
-## FEAT-0302 Goal parent/child progress rollup
+## FEAT-0302 Goal parent/child progress rollup {#feat-0302}
 
 | | |
 |---|---|
@@ -62,19 +62,19 @@ A Goal with sub-goals shows rolled-up progress from its children, all the way up
 through however many levels of nesting exist below it — not limited to a fixed
 number of tiers.
 
-## FEAT-0303 Sub-goals
+## FEAT-0303 Sub-goals {#feat-0303}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0001-create-entity) |
+| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0001) |
 
 ### Description
 
 A Goal can have any number of sub-goals, at any depth. A sub-goal's own Time-bound
 duration must resolve to a target date that is not later than its parent's — see
-[FEAT-0311](#feat-0311-due-date-consistency-across-the-entity-tree) below
+[FEAT-0311](#feat-0311) below
 for the cascade/block behaviour when an edit would violate this.
 
 A Sub-goal always has a connector to its parent Goal. If its primary Life Area is the same as its parent's, that connector also serves as its connection to the Life Area. If the two differ, however that came about, the Sub-goal also has its own connection to its primary Life Area.
@@ -91,7 +91,7 @@ There is no fixed rule for when something should be a sub-goal with tasks undern
 it, versus a task with its own sub-tasks — this is left to the user's judgement
 rather than an enforced structural distinction.
 
-## FEAT-0304 Goals calendar and timeline view
+## FEAT-0304 Goals calendar and timeline view {#feat-0304}
 
 | | |
 |---|---|
@@ -105,13 +105,13 @@ between a broader and finer view — a display convenience, not a reflection of 
 stored tier. A simple overview lists top-level Goals (those with no parent) alongside
 their nested sub-goals.
 
-## FEAT-0305 Goal reassignment and re-parenting
+## FEAT-0305 Goal reassignment and re-parenting {#feat-0305}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0002 - Edit entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-edit-entity) |
+| **Extends** | [FEAT-0002 - Edit entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0002) |
 
 ### Description
 
@@ -121,15 +121,15 @@ made top-level), without losing history.
 #### Note
 
 Re-parenting is subject to the same due date consistency check as a direct date
-edit — see [FEAT-0311](#feat-0311-due-date-consistency-across-the-entity-tree) below.
+edit — see [FEAT-0311](#feat-0311) below.
 
-## FEAT-0306 Sub-goal primary Life Area default
+## FEAT-0306 Sub-goal primary Life Area default {#feat-0306}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0303 - Sub-goals](#feat-0303-sub-goals), [FEAT-0308 - Primary Life Area](#feat-0308-primary-life-area) |
+| **Extends** | [FEAT-0303 - Sub-goals](#feat-0303), [FEAT-0308 - Primary Life Area](#feat-0308) |
 
 ### Description
 
@@ -137,34 +137,34 @@ When a sub-goal is created, its primary Life Area defaults to its parent Goal's
 *current* primary Life Area at that moment. This is a one-time default set at
 creation, the sub-goal's primary can be changed independently
 afterward exactly like any other Goal's (see
-[FEAT-0308](#feat-0308-primary-life-area)), and a later change to the parent's own
+[FEAT-0308](#feat-0308)), and a later change to the parent's own
 primary does not retroactively update it (see
-[FEAT-0307](#feat-0307-optional-life-area-cascade-on-primary-change) for the
+[FEAT-0307](#feat-0307) for the
 separate, optional mechanism that does offer to update it).
 
-On the [Vision Board](/nailed-it-docs/features/02-vision-board), this default is
+On the [Vision Board](/nailed-it-docs/design-documentation/features/02-vision-board), this default is
 expressed by drawing the sub-goal node's primary edge automatically at creation,
 already pointing at its parent Goal — the "first canvas connection becomes
 primary" rule (see
 [Vision Board — Design Overview](/nailed-it-docs/design-documentation/vision-board-design-overview))
 
-## FEAT-0307 Optional Life Area cascade on primary change
+## FEAT-0307 Optional Life Area cascade on primary change {#feat-0307}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0308 - Primary Life Area](#feat-0308-primary-life-area) |
+| **Extends** | [FEAT-0308 - Primary Life Area](#feat-0308) |
 
 ### Description
 
 When a Goal's own primary Life Area is changed, its existing sub-goals are not
 retroactively updated by default — each sub-goal's primary was only ever a one-time
-default (see [FEAT-0306](#feat-0306-sub-goal-primary-life-area-default)), and may
+default (see [FEAT-0306](#feat-0306)), and may
 since have been deliberately changed to something else.
 
 The user is instead offered an **optional cascade**, in the same shape as
-[FEAT-0311](#feat-0311-due-date-consistency-across-the-entity-tree)'s
+[FEAT-0311](#feat-0311)'s
 due-date cascade: a confirmation dialog lists the affected sub-goals and, if
 accepted, updates them to the new primary. Two rules distinguish it from a blanket
 update:
@@ -188,13 +188,13 @@ update:
 - And accepting updates B's primary to Health, recursing into any of B's own
   sub-goals still matching Sport, while leaving C and C's descendants untouched
 
-## FEAT-0308 Primary Life Area
+## FEAT-0308 Primary Life Area {#feat-0308}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0310 - Core planning entity fields](#feat-0310-core-planning-entity-fields) |
+| **Extends** | [FEAT-0310 - Core planning entity fields](#feat-0310) |
 
 ### Description
 
@@ -203,23 +203,23 @@ grouping, dashboards, and hierarchy sequencing without ambiguity — it's the
 unambiguous answer to "which Life Area's goal list does this appear in." See
 [Vision Board — Design Overview](/nailed-it-docs/design-documentation/vision-board-design-overview)
 for the full data model and the Vision Board's edge-based representation, and
-[FEAT-0309](#feat-0309-impacted-life-areas) for the separate, optional,
+[FEAT-0309](#feat-0309) for the separate, optional,
 many-to-many Impacted Life Areas relationship — an annotation of consequence, not a
 second ownership claim.
 
 This field is Goal-specific. Tasks derive their Life Area from their parent Goal
 instead of carrying their own — see
-[05 Task Hierarchy, FEAT-0505](/nailed-it-docs/features/05-task-hierarchy#feat-0505-task-life-area).
+[05 Task Hierarchy, FEAT-0505](/nailed-it-docs/design-documentation/features/05-task-hierarchy#feat-0505).
 
 On the Vision Board the connection between a Goal and its Primary Life Area is represented by a visual connection.
 
-## FEAT-0309 Impacted Life Areas
+## FEAT-0309 Impacted Life Areas {#feat-0309}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0310 - Core planning entity fields](#feat-0310-core-planning-entity-fields), [FEAT-0308 - Primary Life Area](#feat-0308-primary-life-area) |
+| **Extends** | [FEAT-0310 - Core planning entity fields](#feat-0310), [FEAT-0308 - Primary Life Area](#feat-0308) |
 
 ### Description
 
@@ -228,13 +228,13 @@ more **Impacted Life Areas** — an annotation of consequence, not a second owne
 claim (e.g. a marathon-training Goal's primary Life Area is Sport, but it impacts
 Family by drawing down weekend availability). Each Impacted Life Area is set via a
 form (pick a Life Area, add a short note) rather than a
-canvas gesture — see [02 Vision Board](/nailed-it-docs/features/02-vision-board) for
+canvas gesture — see [02 Vision Board](/nailed-it-docs/design-documentation/features/02-vision-board) for
 how these render (icon badges, not edges). The note lives on the relationship
 itself, so the same Goal can carry a different note per Impacted Life Area.
 
 This relationship is Goal-specific — Tasks do not carry Impacted Life Areas.
 
-## FEAT-0310 Core planning entity fields
+## FEAT-0310 Core planning entity fields {#feat-0310}
 
 | | |
 |---|---|
@@ -249,34 +249,34 @@ Every Goal and Task carries a common base set of fields, per the PRD's Core Data
 - Description
 - Status — one of Not Started / In Progress / Completed / On Hold / Blocked. Abandoned and
   Archived are separate flags layered on top of Status, not additional enum values
-  — see [FEAT-0312](#feat-0312-abandon-and-recommit) and
-  [FEAT-0313](#feat-0313-archive-a-completed-entity) below.
+  — see [FEAT-0312](#feat-0312) and
+  [FEAT-0313](#feat-0313) below.
 - Due date / target date — captured differently by entity type: a Task's due date is
   set directly by the user; a Goal's target date is computed from its SMARTER
   Time-bound duration (years + months) rather than picked directly — see
-  [FEAT-0301](#feat-0301-time-bound-target-set-as-a-duration) above and
-  [05 Task Hierarchy](/nailed-it-docs/features/05-task-hierarchy). Both resolve to a
+  [FEAT-0301](#feat-0301) above and
+  [05 Task Hierarchy](/nailed-it-docs/design-documentation/features/05-task-hierarchy). Both resolve to a
   real, storable date, so filtering, sorting, and calendar views can treat Goals and
   Tasks uniformly.
 - Active / Inactive - a task cannot be active until its parent Goal is Active. 
 
 Life Area is not one of these shared fields — it's handled differently by entity
 type. A Goal carries its own independent primary Life Area (plus optional Impacted
-Life Areas) — see [FEAT-0308](#feat-0308-primary-life-area) and
-[FEAT-0309](#feat-0309-impacted-life-areas) above. A Task has no independent Life
+Life Areas) — see [FEAT-0308](#feat-0308) and
+[FEAT-0309](#feat-0309) above. A Task has no independent Life
 Area of its own; the Life Area is inherited from its parent Goal — see
-[05 Task Hierarchy, FEAT-0505](/nailed-it-docs/features/05-task-hierarchy#feat-0505-task-life-area).
+[05 Task Hierarchy, FEAT-0505](/nailed-it-docs/design-documentation/features/05-task-hierarchy#feat-0505).
 
 Task extends this base with its own additional fields — see
-[05 Task Hierarchy, FEAT-0501](/nailed-it-docs/features/05-task-hierarchy#feat-0501-task-fields).
+[05 Task Hierarchy, FEAT-0501](/nailed-it-docs/design-documentation/features/05-task-hierarchy#feat-0501).
 
-## FEAT-0311 Due date consistency across the entity tree
+## FEAT-0311 Due date consistency across the entity tree {#feat-0311}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0310 - Core planning entity fields](#feat-0310-core-planning-entity-fields) |
+| **Extends** | [FEAT-0310 - Core planning entity fields](#feat-0310) |
 
 ### Description
 
@@ -284,7 +284,7 @@ Across the full Goal/Task tree — sub-goals, a Goal's Tasks, and a Task's sub-t
 any depth — if a descendant's due date/target date is edited to fall after one of its
 ancestors' dates, this is the **ascending** case: the ancestor's date would need to
 move out to stay consistent, since it cannot reach 100% progress (see
-[FEAT-0302](#feat-0302-goal-parentchild-progress-rollup))
+[FEAT-0302](#feat-0302))
 by a date one of its parts hasn't yet reached. For example, a Task due 15-Sep-2026
 sits under a Goal targeting 31-Oct-2026; if the Task's due date is moved to
 15-Nov-2026, the Goal's target date would need to move out to at least 15-Nov-2026.
@@ -297,12 +297,12 @@ shortened so its target date becomes 01-Oct-2026, the Task's due date would need
 move in to on or before 01-Oct-2026.
 
 This check applies whenever a due date (Task) or Time-bound duration (Goal, see
-[FEAT-0301](#feat-0301-time-bound-target-set-as-a-duration))
+[FEAT-0301](#feat-0301))
 is directly edited, and whenever an entity is re-parented (see
-[FEAT-0305](#feat-0305-goal-reassignment-and-re-parenting) above).
+[FEAT-0305](#feat-0305) above).
 
 Two independent settings (see
-[10 Accounts and Settings](/nailed-it-docs/features/10-accounts-and-settings)) govern
+[10 Accounts and Settings](/nailed-it-docs/design-documentation/features/10-accounts-and-settings)) govern
 what happens when a change would cause either case above, one setting per direction:
 
 - **Ascending** — default: cascade allowed.
@@ -335,7 +335,7 @@ When a cascade changes a Goal's target date, that Goal's stored Time-bound durat
 - Then an informational dialog lists the child Task and its due date
 - And the Goal's target date field reverts to 31-Oct-2026, the edited title remains unsaved but present on the form, and the form stays open
 
-## FEAT-0312 Abandon and recommit
+## FEAT-0312 Abandon and recommit {#feat-0312}
 
 | | |
 |---|---|
@@ -348,7 +348,7 @@ A user can mark a Goal or Task **Abandoned** — a deliberate, conscious decisio
 stop pursuing it before completion (typically surfaced during a review of a Stale
 item), not something inferred from neglect. A reason is **mandatory**. Abandoning a
 parent cascades to all its descendants, identically to
-[Delete's cascade](/nailed-it-docs/features/00-base-entity-features#feat-0004-delete-entity);
+[Delete's cascade](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0003);
 each cascaded child gets its own event row rather than being silently hidden by its
 parent's state.
 
@@ -364,7 +364,7 @@ reason and timestamp), not a pair of fields that would overwrite earlier history
 
 No recurring review cycle applies to an Abandoned item, and there is no forced
 touchpoint requiring it to be resolved one way or the other — it simply stays
-Abandoned, hidden from default views (see [13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features#feat-1305-status-abandoned-and-archived-filters)),
+Abandoned, hidden from default views (see [13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features#feat-1305)),
 until the user chooses to Recommit.
 
 #### Note
@@ -374,7 +374,7 @@ considered and rejected — the event log exists so a user can read the full seq
 of reasons for themselves during review; the system does not compute or surface a
 count.
 
-## FEAT-0313 Archive a completed entity
+## FEAT-0313 Archive a completed entity {#feat-0313}
 
 | | |
 |---|---|
@@ -389,12 +389,12 @@ and there is no reversal: Archive is not offered as an outcome for Abandoned or 
 other non-Completed state, and there is no "unarchive" action. Consistent with the
 soft-delete pattern used elsewhere (hard data stays, visibility changes), Archived
 items are hidden from default views and exposed via their own tri-state filter — see
-[13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features#feat-1305-status-abandoned-and-archived-filters).
+[13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features#feat-1305).
 
 This asymmetry with Abandon/Recommit is deliberate: a Completed Goal or Task has
 nothing left to reconsider the way an Abandoned one does.
 
-## FEAT-0314 Stale / Needs Review signal
+## FEAT-0314 Stale / Needs Review signal {#feat-0314}
 
 | | |
 |---|---|
@@ -406,10 +406,10 @@ nothing left to reconsider the way an Abandoned one does.
 A computed signal, not a stored status: a Goal or Task with no update in N days,
 overdue for its next scheduled review or N days past it's Due Date, is flagged Stale/Needs Review regardless of
 its current `status` value. This is what surfaces neglect for the user's attention —
-[Abandon](#feat-0312-abandon-and-recommit) is one of the outcomes a user can choose
+[Abandon](#feat-0312) is one of the outcomes a user can choose
 once confronted with a Stale item, the others being recommit/update or
-[Archive](#feat-0313-archive-a-completed-entity). Filterable — see
-[13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features#feat-1306-needs-review--stale-filter).
+[Archive](#feat-0313). Filterable — see
+[13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features#feat-1306).
 
 ## Revision History
 
@@ -427,7 +427,7 @@ once confronted with a Stale item, the others being recommit/update or
 ### Version 1.1 - 17-Sep-2026
 
 - Relocated FEAT-0001, FEAT-0005, FEAT-0007, FEAT-0008, and FEAT-0009 here from
-  [00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features), as
+  [00 Base Entity Features](/nailed-it-docs/design-documentation/features/00-base-entity-features), as
   FEAT-0310 (Core planning entity fields), FEAT-0311 (Due date consistency across
   the entity tree), FEAT-0312 (Abandon and recommit), FEAT-0313 (Archive a completed
   entity), and FEAT-0314 (Stale / Needs Review signal) respectively. None of these
@@ -475,4 +475,3 @@ once confronted with a Stale item, the others being recommit/update or
 ### Version 0.1 - 02-Sep-2026
 
 - Initial version, derived from the Nailed-It PRD v1.0.
-</content>

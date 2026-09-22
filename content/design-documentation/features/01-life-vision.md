@@ -10,7 +10,7 @@ The life vision statement is the anchor point of the application: every Life Are
 Goal, and Task should ultimately trace back to it (Application Goal 1 in the PRD).
 There is exactly one vision statement per user account.
 
-## FEAT-0101 Write and edit vision statement
+## FEAT-0101 Write and edit vision statement {#feat-0101}
 
 | | |
 |---|---|
@@ -24,12 +24,12 @@ The user can write, edit, and save a single free-text life vision statement.
 #### Note
 
 Unlike Life Areas, Goals, Tasks, and Habits (see
-[00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features)), the vision
+[00 Base Entity Features](/nailed-it-docs/design-documentation/features/00-base-entity-features)), the vision
 statement is a singleton with no separate creation flow and no delete operation.
 Writing it the first time and editing it later use the same mechanism, so write and edit
 are combined into one feature rather than split as they are for base entities.
 
-## FEAT-0102 Vision statement version history
+## FEAT-0102 Vision statement version history {#feat-0102}
 
 | | |
 |---|---|
@@ -44,7 +44,7 @@ Previous versions of the vision statement are retained and viewable.
 
 This is a full diff/comparison history so that the user can see exactly what they changed over the different versions. 
 
-## FEAT-0103 Vision statement quick access
+## FEAT-0103 Vision statement quick access {#feat-0103}
 
 | | |
 |---|---|
@@ -54,8 +54,8 @@ This is a full diff/comparison history so that the user can see exactly what the
 ### Description
 
 The current vision statement is visible or accessible from the
-[Vision Board](/nailed-it-docs/features/02-vision-board) and from the
-[Areas of Focus](/nailed-it-docs/features/06-areas-of-focus) view, so it is never more
+[Vision Board](/nailed-it-docs/design-documentation/features/02-vision-board) and from the
+[Areas of Focus](/nailed-it-docs/design-documentation/features/06-areas-of-focus) view, so it is never more
 than one click from any planning screen.
 
 ## Revision History

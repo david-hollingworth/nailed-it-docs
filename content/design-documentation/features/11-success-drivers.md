@@ -10,7 +10,7 @@ Success Drivers add an affective, identity-level layer on top of the existing
 progress-tracking chain (Vision → Life Area → Goal → Task). A driver is a short,
 personally-chosen statement of belief or intent — either adopted from a provided
 example library or written from scratch — that a user can attach to one or more of
-their [reviews](/nailed-it-docs/features/07-review-cycle) to reinforce mindset
+their [reviews](/nailed-it-docs/design-documentation/features/07-review-cycle) to reinforce mindset
 alongside progress-tracking. The feature is entirely optional and low-friction: it
 adds motivational texture to a review, never a required step.
 
@@ -34,7 +34,7 @@ numbering as literal "Phase 6"/"Phase 7" values.
 - **Not tied to standalone push notifications in v1** — drivers surface inside
   reviews only.
 
-## FEAT-1101 Example driver library
+## FEAT-1101 Example driver library {#feat-1101}
 
 | | |
 |---|---|
@@ -51,13 +51,13 @@ Personal Growth).
 Content for this library needs to be written before the feature can ship, even in a
 minimal form — flagged in the PRD as a dependency, not a last-minute blocker.
 
-## FEAT-1102 Browse and adopt drivers
+## FEAT-1102 Browse and adopt drivers {#feat-1102}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | TBD (Version 2) |
-| **Extends** | [FEAT-0002 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity) |
+| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0001) |
 
 ### Description
 
@@ -66,26 +66,26 @@ their personal set. Adopting a library driver creates an editable copy — the u
 copy is independent of the library entry from that point on (adopt-by-copy, not
 adopt-by-reference).
 
-## FEAT-1103 Custom driver authoring
+## FEAT-1103 Custom driver authoring {#feat-1103}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | TBD (Version 2) |
-| **Extends** | [FEAT-0002 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity) |
+| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0001) |
 
 ### Description
 
 The user can write and save their own driver as free text, independent of the
 example library.
 
-## FEAT-1104 Edit and deactivate drivers
+## FEAT-1104 Edit and deactivate drivers {#feat-1104}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | TBD (Version 2) |
-| **Extends** | [FEAT-0003 - Edit entity](/nailed-it-docs/features/00-base-entity-features#feat-0003-edit-entity) |
+| **Extends** | [FEAT-0002 - Edit entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0002) |
 
 ### Description
 
@@ -93,7 +93,7 @@ The user can edit the wording of any driver in their personal set, whether
 library-derived or custom, and deactivate (soft-delete) a driver without losing its
 history.
 
-## FEAT-1105 Review assignment
+## FEAT-1105 Review assignment {#feat-1105}
 
 | | |
 |---|---|
@@ -107,7 +107,7 @@ types/cadences, and remove that assignment later. This can be done from the driv
 itself (choosing which review schedule(s) it should appear on when creating or
 editing it) as well as from the review side.
 
-## FEAT-1106 Display in review
+## FEAT-1106 Display in review {#feat-1106}
 
 | | |
 |---|---|
@@ -125,7 +125,7 @@ review has more than one assigned driver:
   have already been shown, at which point the set repeats).
 - The selected drivers are displayed in a random order.
 
-## FEAT-1107 First-time empty state
+## FEAT-1107 First-time empty state {#feat-1107}
 
 | | |
 |---|---|
@@ -138,7 +138,7 @@ The first time a user visits the Success Drivers area with no drivers yet in the
 personal set, an inviting empty state explains what drivers are and how to get
 started (browse the library or write a custom one) — not a blank screen.
 
-## FEAT-1108 Empty review section omission
+## FEAT-1108 Empty review section omission {#feat-1108}
 
 | | |
 |---|---|
@@ -151,7 +151,7 @@ A review with no drivers assigned to it renders normally, with the driver sectio
 omitted entirely — no empty placeholder and no prompt to add one. The feature must
 never feel like a required field.
 
-## FEAT-1109 Per-account isolation
+## FEAT-1109 Per-account isolation {#feat-1109}
 
 | | |
 |---|---|
@@ -162,21 +162,21 @@ never feel like a required field.
 
 A user's custom drivers and library adoptions are private to their account, with no
 cross-account visibility — consistent with Nailed-It's existing multi-account model
-(see [10 Accounts and Settings](/nailed-it-docs/features/10-accounts-and-settings)).
+(see [10 Accounts and Settings](/nailed-it-docs/design-documentation/features/10-accounts-and-settings)).
 
-## FEAT-1110 Markdown emphasis for driver wording
+## FEAT-1110 Markdown emphasis for driver wording {#feat-1110}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | TBD (Version 2, after the rest of this feature) |
-| **Extends** | [FEAT-0003 - Edit entity](/nailed-it-docs/features/00-base-entity-features#feat-0003-edit-entity) |
+| **Extends** | [FEAT-0002 - Edit entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0002) |
 
 ### Description
 
 A driver's wording supports basic markdown-style emphasis (bold/italic).
 
-## FEAT-1111 Driver usage visibility
+## FEAT-1111 Driver usage visibility {#feat-1111}
 
 | | |
 |---|---|
@@ -194,7 +194,7 @@ retiring it.
 This is a lightweight, non-gamified signal only. It is display information, not a
 tracked streak or count — consistent with the feature's Non-Goals above.
 
-## FEAT-1112 Driver display on login
+## FEAT-1112 Driver display on login {#feat-1112}
 
 | | |
 |---|---|
@@ -215,13 +215,13 @@ The following ideas are explicitly deferred and are not yet
 committed to a build phase. They are listed here for traceability, not as specified
 features:
 
-- **AI-assisted drafting** — the [AI assistant](/nailed-it-docs/features/08-ai-assistant)
+- **AI-assisted drafting** — the [AI assistant](/nailed-it-docs/design-documentation/features/08-ai-assistant)
   suggests a positively-framed driver, potentially seeded from a goal's Well-Formed
   Outcome "positively formulated outcome" answers — a natural bridge between
   Well-Formed Outcome and this feature. Any such integration must respect the
   existing "send minimal context" cloud-AI privacy default and UI indicator for
   active cloud providers (see
-  [FEAT-1005 - AI provider configuration](/nailed-it-docs/features/10-accounts-and-settings#feat-1005-ai-provider-configuration)).
+  [FEAT-1005 - AI provider configuration](/nailed-it-docs/design-documentation/features/10-accounts-and-settings#feat-1005)).
 - **Goal-level attachment** — attach a driver to a specific Goal, not just a review
   type/cadence, so it appears whenever that goal is reviewed.
 - **Standalone reminders** — surface a driver via push/email/Telegram independent of

@@ -12,19 +12,19 @@ vision statement).
 
 Task shares a large common core with Goal — base fields, due date consistency across
 the tree, and lifecycle (Abandon/Recommit, Archive, Stale/Needs Review) — defined in
-[03 Goal Hierarchy](/nailed-it-docs/features/03-goal-hierarchy), since neither is
+[03 Goal Hierarchy](/nailed-it-docs/design-documentation/features/03-goal-hierarchy), since neither is
 genuinely shared with Life Area or Habit. FEAT-0506 through FEAT-0509 below exist to
 give each of those shared behaviours its own Task-side FEAT id to relate
 requirements to — they extend Goal's version identically, with no Task-specific
 variation, rather than describing something that differs.
 
-## FEAT-0501 Task fields
+## FEAT-0501 Task fields {#feat-0501}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0310 - Core planning entity fields](/nailed-it-docs/features/03-goal-hierarchy#feat-0310-core-planning-entity-fields) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0310 - Core planning entity fields](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0310) |
 
 ### Description
 
@@ -36,9 +36,9 @@ extend them with task-specific attributes:
 - Actual completion date
 
 Tasks also carry a Life Area, but not as an independently-set field the way Goals
-do — see [FEAT-0505](#feat-0505-task-life-area) below.
+do — see [FEAT-0505](#feat-0505) below.
 
-## FEAT-0502 Task-to-goal linkage
+## FEAT-0502 Task-to-goal linkage {#feat-0502}
 
 | | |
 |---|---|
@@ -50,44 +50,44 @@ do — see [FEAT-0505](#feat-0505-task-life-area) below.
 Tasks link to exactly one parent Goal. A task exists to serve a goal — no orphan
 tasks are permitted.
 
-## FEAT-0503 Sub-tasks
+## FEAT-0503 Sub-tasks {#feat-0503}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0002 - Create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity) |
+| **Extends** | [FEAT-0001 - Create entity](/nailed-it-docs/design-documentation/features/00-base-entity-features#feat-0001) |
 
 ### Description
 
 Tasks can be nested (sub-tasks) to an unlimited depth. Sub-tasks are linked to
 their parent task, not directly to a goal.
 
-## FEAT-0504 Task status rollup
+## FEAT-0504 Task status rollup {#feat-0504}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0310 - Core planning entity fields](/nailed-it-docs/features/03-goal-hierarchy#feat-0310-core-planning-entity-fields) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0310 - Core planning entity fields](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0310) |
 
 ### Description
 
 Task status (Not Started / In Progress / Completed / On Hold / Blocked — see
-[03 Goal Hierarchy, FEAT-0310](/nailed-it-docs/features/03-goal-hierarchy#feat-0310-core-planning-entity-fields))
+[03 Goal Hierarchy, FEAT-0310](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0310))
 rolls up into a visible completion percentage on the parent Goal or parent Task.
 Abandoned and Archived (see
-[03 Goal Hierarchy, FEAT-0312](/nailed-it-docs/features/03-goal-hierarchy#feat-0312-abandon-and-recommit)
-and [FEAT-0313](/nailed-it-docs/features/03-goal-hierarchy#feat-0313-archive-a-completed-entity))
+[03 Goal Hierarchy, FEAT-0312](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0312)
+and [FEAT-0313](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0313))
 are separate flags layered on top of Status, not additional values in this rollup.
 
-## FEAT-0505 Task Life Area
+## FEAT-0505 Task Life Area {#feat-0505}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0308 - Primary Life Area](/nailed-it-docs/features/03-goal-hierarchy#feat-0308-primary-life-area) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0308 - Primary Life Area](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0308) |
 
 ### Description
 
@@ -95,26 +95,26 @@ A Task has no independent Life Area of its own. It always mirrors its parent Goa
 *current* primary Life Area, live — if the Goal's primary changes, every Task under
 it reflects the new value immediately, with no separate sync step and nothing to
 confirm (unlike the optional cascade offered for sub-goals, see
-[03 Goal Hierarchy, FEAT-0307](/nailed-it-docs/features/03-goal-hierarchy#feat-0307-optional-life-area-cascade-on-primary-change) —
+[03 Goal Hierarchy, FEAT-0307](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0307) —
 a Task never had an independent value that a change could overwrite).
 
 A Task's Life Area is filterable (see
-[13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features)) but
+[13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features)) but
 not independently settable, and carries no Impacted Life Areas of its own — those
 are a Goal-only concept (see
-[03 Goal Hierarchy, FEAT-0309](/nailed-it-docs/features/03-goal-hierarchy#feat-0309-impacted-life-areas)).
+[03 Goal Hierarchy, FEAT-0309](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0309)).
 
-On the [Vision Board](/nailed-it-docs/features/02-vision-board), a Task node has no
+On the [Vision Board](/nailed-it-docs/design-documentation/features/02-vision-board), a Task node has no
 Life Area edge at all — its Life Area shows as a single badge only, reflecting the
 derived value.
 
-## FEAT-0506 Task due date consistency
+## FEAT-0506 Task due date consistency {#feat-0506}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0311 - Due date consistency across the entity tree](/nailed-it-docs/features/03-goal-hierarchy#feat-0311-due-date-consistency-across-the-entity-tree) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0311 - Due date consistency across the entity tree](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0311) |
 
 ### Description
 
@@ -122,54 +122,54 @@ A Task's due date is subject to the same due date consistency rule as a Goal's
 target date — it cannot remain later than any ancestor's date (its parent Goal, or
 an ancestor Task via nesting), and is subject to the same ascending/descending
 cascade behaviour, including on re-parenting. No Task-specific variation — see
-[03 Goal Hierarchy, FEAT-0311](/nailed-it-docs/features/03-goal-hierarchy#feat-0311-due-date-consistency-across-the-entity-tree)
+[03 Goal Hierarchy, FEAT-0311](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0311)
 for the full rule.
 
-## FEAT-0507 Task Abandon and Recommit
+## FEAT-0507 Task Abandon and Recommit {#feat-0507}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0312 - Abandon and recommit](/nailed-it-docs/features/03-goal-hierarchy#feat-0312-abandon-and-recommit) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0312 - Abandon and recommit](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0312) |
 
 ### Description
 
 A Task can be marked Abandoned and later Recommitted identically to a Goal — a
 mandatory reason on both actions, an append-only event log, and cascade to
 descendant sub-tasks. No Task-specific variation — see
-[03 Goal Hierarchy, FEAT-0312](/nailed-it-docs/features/03-goal-hierarchy#feat-0312-abandon-and-recommit)
+[03 Goal Hierarchy, FEAT-0312](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0312)
 for the full rule.
 
-## FEAT-0508 Task Archive
+## FEAT-0508 Task Archive {#feat-0508}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0313 - Archive a completed entity](/nailed-it-docs/features/03-goal-hierarchy#feat-0313-archive-a-completed-entity) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0313 - Archive a completed entity](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0313) |
 
 ### Description
 
 A Task can be Archived identically to a Goal — reachable only from Completed status,
 with no reversal. No Task-specific variation — see
-[03 Goal Hierarchy, FEAT-0313](/nailed-it-docs/features/03-goal-hierarchy#feat-0313-archive-a-completed-entity)
+[03 Goal Hierarchy, FEAT-0313](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0313)
 for the full rule.
 
-## FEAT-0509 Task Stale / Needs Review
+## FEAT-0509 Task Stale / Needs Review {#feat-0509}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0314 - Stale / Needs Review signal](/nailed-it-docs/features/03-goal-hierarchy#feat-0314-stale--needs-review-signal) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0314 - Stale / Needs Review signal](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0314) |
 
 ### Description
 
 A Task is flagged Stale/Needs Review identically to a Goal — computed from no
 update in N days, an overdue scheduled review or  N days past its Due-Date, independent of its `status`
 value. No Task-specific variation — see
-[03 Goal Hierarchy, FEAT-0314](/nailed-it-docs/features/03-goal-hierarchy#feat-0314-stale--needs-review-signal)
+[03 Goal Hierarchy, FEAT-0314](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0314)
 for the full rule.
 
 ## Revision History
@@ -191,9 +191,9 @@ for the full rule.
 - FEAT-0502: removed the due-date-consistency note, now superseded by the explicit
   FEAT-0506.
 - FEAT-0501 and FEAT-0504: updated Extends/references from
-  [00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features) to the
+  [00 Base Entity Features](/nailed-it-docs/design-documentation/features/00-base-entity-features) to the
   relocated FEAT-0310/FEAT-0312/FEAT-0313 in
-  [03 Goal Hierarchy](/nailed-it-docs/features/03-goal-hierarchy). File order
+  [03 Goal Hierarchy](/nailed-it-docs/design-documentation/features/03-goal-hierarchy). File order
   remains by FEAT number.
 
 ### Version 1.0 - 13-Sep-2026
@@ -223,4 +223,3 @@ for the full rule.
 ### Version 0.1 - 02-Sep-2026
 
 - Initial version, derived from the Nailed-It PRD v1.0.
-</content>

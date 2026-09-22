@@ -10,7 +10,7 @@ weight: 5
 This roadmap works from a single assumption: **Versions sit above Phases.** A Phase is a development cycle *within* a software release Version — Version 1 isn't "done" until
 all of Phase 0 through Phase 4 have shipped. A Version boundary (Version 1, Version
 2, ...) is a higher-level release boundary, used for scope explicitly deferred past
-the initial release, such as [Calendar Integration](/nailed-it-docs/features/12-calendar-integration).
+the initial release, such as [Calendar Integration](/nailed-it-docs/design-documentation/features/12-calendar-integration).
 Phase numbering restarts at 1 within each Version — Version 2's phases are not a
 continuation of Version 1's Phase 0–4 sequence.
 
@@ -29,7 +29,7 @@ All of Phases 0–4 below are in scope for Version 1.
 
 **Feature files:** 
 
-- [10 Accounts and Settings](/nailed-it-docs/features/10-accounts-and-settings)
+- [10 Accounts and Settings](/nailed-it-docs/design-documentation/features/10-accounts-and-settings)
 (FEAT-1001 – FEAT-1003).
 
 ### Phase 1 — Core hierarchy
@@ -45,15 +45,15 @@ All of Phases 0–4 below are in scope for Version 1.
 
 **Feature files:** 
 
-- [00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features),
-- [01 Life Vision Statement](/nailed-it-docs/features/01-life-vision),
-- [03 Goal Hierarchy](/nailed-it-docs/features/03-goal-hierarchy),
-- [04 Goal Depth](/nailed-it-docs/features/04-goal-depth-well-formed-outcome) (FEAT-0401 only),
-- [05 Task Hierarchy](/nailed-it-docs/features/05-task-hierarchy),
-- [06 Areas of Focus](/nailed-it-docs/features/06-areas-of-focus),
-- [09 Habit Tracking](/nailed-it-docs/features/09-habit-tracking) (excluding FEAT-0906, see Phase 2),
-- [10 Accounts and Settings](/nailed-it-docs/features/10-accounts-and-settings) (FEAT-1006 – FEAT-1007, the due date cascade settings),
-- [13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features) (FEAT-1301 – FEAT-1308).
+- [00 Base Entity Features](/nailed-it-docs/design-documentation/features/00-base-entity-features),
+- [01 Life Vision Statement](/nailed-it-docs/design-documentation/features/01-life-vision),
+- [03 Goal Hierarchy](/nailed-it-docs/design-documentation/features/03-goal-hierarchy),
+- [04 Goal Depth](/nailed-it-docs/design-documentation/features/04-goal-depth-well-formed-outcome) (FEAT-0401 only),
+- [05 Task Hierarchy](/nailed-it-docs/design-documentation/features/05-task-hierarchy),
+- [06 Areas of Focus](/nailed-it-docs/design-documentation/features/06-areas-of-focus),
+- [09 Habit Tracking](/nailed-it-docs/design-documentation/features/09-habit-tracking) (excluding FEAT-0906, see Phase 2),
+- [10 Accounts and Settings](/nailed-it-docs/design-documentation/features/10-accounts-and-settings) (FEAT-1006 – FEAT-1007, the due date cascade settings),
+- [13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features) (FEAT-1301 – FEAT-1308).
 
 *This alone is a usable app, per the PRD.*
 
@@ -66,16 +66,16 @@ All of Phases 0–4 below are in scope for Version 1.
 
 **Feature files:** 
 
-- [07 Structured Review Cycle](/nailed-it-docs/features/07-review-cycle),
-- [FEAT-1004 - Notification channel configuration](/nailed-it-docs/features/10-accounts-and-settings#feat-1004-notification-channel-configuration),
-- [FEAT-0906 - Habit check-in reminders](/nailed-it-docs/features/09-habit-tracking#feat-0906-habit-check-in-reminders).
+- [07 Structured Review Cycle](/nailed-it-docs/design-documentation/features/07-review-cycle),
+- [FEAT-1004 - Notification channel configuration](/nailed-it-docs/design-documentation/features/10-accounts-and-settings#feat-1004),
+- [FEAT-0906 - Habit check-in reminders](/nailed-it-docs/design-documentation/features/09-habit-tracking#feat-0906).
 
 ### Phase 3 — Vision Board
 
 - Mind-map UI over the data model built in Phase 1, with equal-footing web-form
   entry.
 
-**Feature files:** [02 Vision Board](/nailed-it-docs/features/02-vision-board).
+**Feature files:** [02 Vision Board](/nailed-it-docs/design-documentation/features/02-vision-board).
 
 ### Phase 4 — Well-Formed Outcome depth
 
@@ -86,11 +86,11 @@ All of Phases 0–4 below are in scope for Version 1.
 
 **Feature files:** 
 
-- [04 Goal Depth](/nailed-it-docs/features/04-goal-depth-well-formed-outcome)
+- [04 Goal Depth](/nailed-it-docs/design-documentation/features/04-goal-depth-well-formed-outcome)
 (FEAT-0402 – FEAT-0405; FEAT-0406 depends on the AI Assistant and ships in Version 2),
-- [13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features) (FEAT-1309, Field-level contextual help).
+- [13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features) (FEAT-1309, Field-level contextual help).
 
-## Version 2 and beyond
+## Version 2 and beyond {#version-2-and-beyond}
 
 Scope explicitly deferred past Version 1. **Phase numbering restarts at 1 within
 Version 2** — it does not continue Version 1's Phase 0–4 sequence. Which specific
@@ -99,12 +99,12 @@ Version 1 is complete, or nearly so. The feature files below currently mark thes
 items **Phase: TBD (Version 2)** rather than asserting a phase number ahead of that
 decision.
 
-- **AI Assistant** — [08 AI Assistant](/nailed-it-docs/features/08-ai-assistant),
-  plus [FEAT-1005 - AI provider configuration](/nailed-it-docs/features/10-accounts-and-settings#feat-1005-ai-provider-configuration)
+- **AI Assistant** — [08 AI Assistant](/nailed-it-docs/design-documentation/features/08-ai-assistant),
+  plus [FEAT-1005 - AI provider configuration](/nailed-it-docs/design-documentation/features/10-accounts-and-settings#feat-1005)
   in 10 Accounts and Settings.
 - **Calendar Integration** (Google Calendar, generic CalDAV/Nextcloud) — 
-  [12 Calendar Integration](/nailed-it-docs/features/12-calendar-integration).
-- **Success Drivers** - [11 Success Drivers](/nailed-it-docs/features/11-success-drivers)
+  [12 Calendar Integration](/nailed-it-docs/design-documentation/features/12-calendar-integration).
+- **Success Drivers** - [11 Success Drivers](/nailed-it-docs/design-documentation/features/11-success-drivers)
 - **Two Factor Authentication (2FA)** - There is currently no feature file for this feature. It will be defined later.
 
 

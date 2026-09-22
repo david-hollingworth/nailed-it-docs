@@ -11,14 +11,14 @@ category, though how an entity gets one differs by type: a Goal carries its own
 independent primary Life Area (plus optional Impacted Life Areas); a Task derives
 its Life Area, live, from the Goal it belongs to; a Habit does the same while
 linked to a Goal, or carries its own independent tag(s) when standalone (see
-[03 Goal Hierarchy](/nailed-it-docs/features/03-goal-hierarchy),
-[05 Task Hierarchy](/nailed-it-docs/features/05-task-hierarchy), and
-[09 Habit Tracking](/nailed-it-docs/features/09-habit-tracking) respectively). This
+[03 Goal Hierarchy](/nailed-it-docs/design-documentation/features/03-goal-hierarchy),
+[05 Task Hierarchy](/nailed-it-docs/design-documentation/features/05-task-hierarchy), and
+[09 Habit Tracking](/nailed-it-docs/design-documentation/features/09-habit-tracking) respectively). This
 feature covers the dedicated view for browsing them by Life Area. The shared,
 app-wide filter capability itself — including filtering by Life Area — lives in
-[13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features).
+[13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features).
 
-## FEAT-0601 Areas of Focus view
+## FEAT-0601 Areas of Focus view {#feat-0601}
 
 | | |
 |---|---|
@@ -28,9 +28,9 @@ app-wide filter capability itself — including filtering by Life Area — lives
 ### Description
 
 A dedicated view lists all Life Areas, each showing its associated Goals, Tasks, and
-[Habits](/nailed-it-docs/features/09-habit-tracking).
+[Habits](/nailed-it-docs/design-documentation/features/09-habit-tracking).
 
-## FEAT-0602 Attention indicator per Area of Focus
+## FEAT-0602 Attention indicator per Area of Focus {#feat-0602}
 
 | | |
 |---|---|
@@ -73,7 +73,7 @@ in a later phase.
 ### Version 0.2 - 12-Sep-2026
 
 - Superseded FEAT-0602: Life Area filtering is now the shared, app-wide capability
-  defined in [13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features), not a standalone
+  defined in [13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features), not a standalone
   capability of this feature. Updated the intro paragraph to match.
 - FEAT-0603: Renamed from "Attention indicator per Lite Area" to "Attention indicator per Area of Focus"
 

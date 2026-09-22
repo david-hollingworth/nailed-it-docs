@@ -9,15 +9,15 @@ revision_date: "22-Sep-2026"
 Unlike Features 00–12, this file doesn't correspond to a single PRD section or a
 single entity type. It groups interaction and rendering conventions that apply across
 multiple features and views, rather than behaviour owned by one entity or feature
-area. Where [00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features)
+area. Where [00 Base Entity Features](/nailed-it-docs/design-documentation/features/00-base-entity-features)
 covers the shared create/edit/delete lifecycle common to Life Areas, Goals, Tasks,
-and Habits, and [03 Goal Hierarchy](/nailed-it-docs/features/03-goal-hierarchy) (with
-[05 Task Hierarchy](/nailed-it-docs/features/05-task-hierarchy)) covers Goal/Task-specific
+and Habits, and [03 Goal Hierarchy](/nailed-it-docs/design-documentation/features/03-goal-hierarchy) (with
+[05 Task Hierarchy](/nailed-it-docs/design-documentation/features/05-task-hierarchy)) covers Goal/Task-specific
 fields and lifecycle (status, date consistency, abandon/recommit, archive,
 staleness), this file covers shared UI/interaction conventions — some of which
 extend beyond the base entity model to fields like the Vision Statement.
 
-## FEAT-1301 Markdown-formatted text fields
+## FEAT-1301 Markdown-formatted text fields {#feat-1301}
 
 | | |
 |---|---|
@@ -27,9 +27,9 @@ extend beyond the base entity model to fields like the Vision Statement.
 ### Description
 
 Free-text, multi-line fields across the application — including entity Description
-fields (see [00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features)),
-the [Vision Statement](/nailed-it-docs/features/01-life-vision), and
-[Well-Formed Outcome](/nailed-it-docs/features/04-goal-depth-well-formed-outcome)
+fields (see [00 Base Entity Features](/nailed-it-docs/design-documentation/features/00-base-entity-features)),
+the [Vision Statement](/nailed-it-docs/design-documentation/features/01-life-vision), and
+[Well-Formed Outcome](/nailed-it-docs/design-documentation/features/04-goal-depth-well-formed-outcome)
 answers — accept Markdown syntax on entry and are rendered with that formatting
 applied wherever they are displayed, rather than as plain or raw text.
 
@@ -39,7 +39,7 @@ rejected outright. This matches the existing
 `django-markdownify` + `bleach` rendering pipeline already in use; the specific
 allowed-tags list is an implementation detail, not specified here.
 
-## FEAT-1302 Shared filter specification
+## FEAT-1302 Shared filter specification {#feat-1302}
 
 | | |
 |---|---|
@@ -52,8 +52,8 @@ Filtering is one shared capability, not a per-view feature. This specification i
 built from [Vision Board — Design Overview](/nailed-it-docs/design-documentation/vision-board-design-overview),
 which defines it as a single specification, implemented once, and applied — as a
 relevant subset — everywhere Goals and Tasks are listed: the
-[Vision Board](/nailed-it-docs/features/02-vision-board), list views, Life Area
-detail, and [Review](/nailed-it-docs/features/07-review-cycle) screens. A filter's
+[Vision Board](/nailed-it-docs/design-documentation/features/02-vision-board), list views, Life Area
+detail, and [Review](/nailed-it-docs/design-documentation/features/07-review-cycle) screens. A filter's
 meaning (what a preset resolves to) and its default state are properties of the
 filter itself, not of the view using it — a view may omit filters that don't apply to
 it, but must not redefine the ones it does use.
@@ -79,13 +79,13 @@ A view may omit any filter that doesn't apply to it (e.g. a Review screen may no
 expose Progress/Completion), but where it does expose a filter, that filter's
 behaviour and default come from this specification, not a per-view redefinition.
 
-## FEAT-1303 Life Area filter: primary vs. impacted match
+## FEAT-1303 Life Area filter: primary vs. impacted match {#feat-1303}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0308 - Primary Life Area](/nailed-it-docs/features/03-goal-hierarchy#feat-0308-primary-life-area), [FEAT-0309 - Impacted Life Areas](/nailed-it-docs/features/03-goal-hierarchy#feat-0309-impacted-life-areas) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0308 - Primary Life Area](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0308), [FEAT-0309 - Impacted Life Areas](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0309) |
 
 ### Description
 
@@ -94,37 +94,37 @@ type:
 
 - A **Goal** matches if the selected Life Area is either its primary or one of its
   impacted Life Areas — the filter does not distinguish which kind of match it was
-  for inclusion purposes, though the [Vision Board](/nailed-it-docs/features/02-vision-board)
+  for inclusion purposes, though the [Vision Board](/nailed-it-docs/design-documentation/features/02-vision-board)
   does visually distinguish primary (edge) from impacted (badge) on the cards
   themselves.
 - A **Task** matches if the selected Life Area is the one it currently derives from
-  its parent Goal (see [05 Task Hierarchy, FEAT-0505](/nailed-it-docs/features/05-task-hierarchy#feat-0505-task-life-area))
+  its parent Goal (see [05 Task Hierarchy, FEAT-0505](/nailed-it-docs/design-documentation/features/05-task-hierarchy#feat-0505))
   — there's no primary/impacted distinction to make.
 - A **Habit** matches its derived Life Area from its parent Goal.
 
-## FEAT-1304 Due Date filter
+## FEAT-1304 Due Date filter {#feat-1304}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0310 - Core planning entity fields](/nailed-it-docs/features/03-goal-hierarchy#feat-0310-core-planning-entity-fields) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0310 - Core planning entity fields](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0310) |
 
 ### Description
 
 Preset options, plus a custom range: Past Due, Due Today, Due This Week, Due Next
 Week, Due This Month, Due Next Month, Due This Year, Due Next Year, Due within 10
 Years, Custom Due Date. Applies uniformly to Tasks' due dates and Goals' computed
-target dates (see [03 Goal Hierarchy, FEAT-0310](/nailed-it-docs/features/03-goal-hierarchy#feat-0310-core-planning-entity-fields)) — both resolve to a real, storable date, so this filter
+target dates (see [03 Goal Hierarchy, FEAT-0310](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0310)) — both resolve to a real, storable date, so this filter
 treats Goals and Tasks the same way.
 
-## FEAT-1305 Status, Abandoned, and Archived filters
+## FEAT-1305 Status, Abandoned, and Archived filters {#feat-1305}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0312 - Abandon and recommit](/nailed-it-docs/features/03-goal-hierarchy#feat-0312-abandon-and-recommit), [FEAT-0313 - Archive a completed entity](/nailed-it-docs/features/03-goal-hierarchy#feat-0313-archive-a-completed-entity) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0312 - Abandon and recommit](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0312), [FEAT-0313 - Archive a completed entity](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0313) |
 
 ### Description
 
@@ -139,13 +139,13 @@ inside the Status multi-select — "both hidden and shown" isn't meaningful for
 either, and both are hidden-by-default, deliberately-revealed states rather than
 "currently live" ones.
 
-## FEAT-1306 Needs Review / Stale filter
+## FEAT-1306 Needs Review / Stale filter {#feat-1306}
 
 | | |
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [03 Goal Hierarchy, FEAT-0314 - Stale / Needs Review signal](/nailed-it-docs/features/03-goal-hierarchy#feat-0314-stale--needs-review-signal) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0314 - Stale / Needs Review signal](/nailed-it-docs/design-documentation/features/03-goal-hierarchy#feat-0314) |
 
 ### Description
 
@@ -153,7 +153,7 @@ Toggle, all shown by default. Filters on the computed Stale/Needs Review signal
 (no update in N days, or overdue for its next scheduled review) — independent of the
 entity's `status` value.
 
-## FEAT-1307 Remaining filter dimensions
+## FEAT-1307 Remaining filter dimensions {#feat-1307}
 
 | | |
 |---|---|
@@ -163,15 +163,15 @@ entity's `status` value.
 ### Description
 
 - **Has WFO Depth** — toggle. Goals that have opted into the
-  [Well-Formed Outcome](/nailed-it-docs/features/04-goal-depth-well-formed-outcome)
+  [Well-Formed Outcome](/nailed-it-docs/design-documentation/features/04-goal-depth-well-formed-outcome)
   deep-dive vs. plain SMARTER goals.
 - **Progress / Completion** — range (e.g. 0–25%, 25–75%, near-complete).
-- **Habit-linked** — toggle. Goals with an associated [Habit](/nailed-it-docs/features/09-habit-tracking)
+- **Habit-linked** — toggle. Goals with an associated [Habit](/nailed-it-docs/design-documentation/features/09-habit-tracking)
   vs. those without.
 - **Active / Inactive** - Goals that aren't full defined are Inactive.
 - **Free-text search** — title/description keyword search.
 
-## FEAT-1308 Per-view filter application
+## FEAT-1308 Per-view filter application {#feat-1308}
 
 | | |
 |---|---|
@@ -181,13 +181,13 @@ entity's `status` value.
 ### Description
 
 How a filter selection visually manifests may differ by view. The
-[Vision Board](/nailed-it-docs/features/02-vision-board#feat-0206-highlight-on-filter-interaction)
+[Vision Board](/nailed-it-docs/design-documentation/features/02-vision-board#feat-0206)
 explicitly highlights matching cards and dims non-matching ones, keeping the full
 canvas visible — documented behaviour, not an assumption. Ordinary list-style views
 (Goal list, Task list, Life Area detail, Review screens) are shall hide
 non-matching items in the conventional way.
 
-## FEAT-1309 Field-level contextual help
+## FEAT-1309 Field-level contextual help {#feat-1309}
 
 | | |
 |---|---|
@@ -237,8 +237,8 @@ as the distinguishing signal, since it fails for colour-blind users.
 
 - Repointed FEAT-1304, FEAT-1305, and FEAT-1306's `Extends` links (and FEAT-1304's
   body reference) to the relocated FEAT-0310, FEAT-0312, FEAT-0313, and FEAT-0314 in
-  [03 Goal Hierarchy](/nailed-it-docs/features/03-goal-hierarchy) — these moved out of
-  [00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features), since
+  [03 Goal Hierarchy](/nailed-it-docs/design-documentation/features/03-goal-hierarchy) — these moved out of
+  [00 Base Entity Features](/nailed-it-docs/design-documentation/features/00-base-entity-features), since
   none were ever actually shared with Life Area or Habit. Updated the intro
   paragraph to describe the new split.
 
