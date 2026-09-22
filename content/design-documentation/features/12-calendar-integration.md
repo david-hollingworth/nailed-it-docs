@@ -2,7 +2,7 @@
 title: "12 Calendar Integration"
 description: "Push-only sync of Task due dates and Review occurrences to Google Calendar or CalDAV"
 draft: false
-revision: "1.1"
+revision: "2.0"
 revision_date: "22-Sep-2026"
 ---
 
@@ -146,6 +146,10 @@ traceability, not as specified features:
   only as a hypothetical future idea.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.1 - 22-Sep-2026
 

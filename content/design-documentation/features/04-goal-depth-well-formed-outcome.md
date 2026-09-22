@@ -2,8 +2,8 @@
 title: "04 Goal Depth: SMARTER and Well-Formed Outcome"
 description: "The SMARTER core every goal carries, plus the optional seven-section deep-dive"
 draft: false
-revision: "1.1"
-revision_date: "20-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 Well-Formed Outcome is not a separate, mutually-exclusive goal structure sitting
@@ -141,6 +141,10 @@ than the rest of the Well-Formed Outcome wizard. The wizard itself does not requ
 to be configured — this is an enhancement on top of it.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.1 - 20-Sep-2026
 

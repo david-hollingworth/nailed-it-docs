@@ -2,8 +2,8 @@
 title: "05 Task Hierarchy"
 description: "Tasks structurally tied to the goal they serve, with sub-tasks and rollup"
 draft: false
-revision: "1.2"
-revision_date: "20-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 Tasks exist to serve a Goal — there are no orphan tasks, consistent with Application
@@ -173,6 +173,10 @@ value. No Task-specific variation — see
 for the full rule.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.2 - 20-Sep-2026
 

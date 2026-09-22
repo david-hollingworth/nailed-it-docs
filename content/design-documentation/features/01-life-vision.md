@@ -2,8 +2,8 @@
 title: "01 Life Vision Statement"
 description: "The single, top-level statement everything else in the app anchors to"
 draft: false
-revision: "1.0"
-revision_date: "13-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 The life vision statement is the anchor point of the application: every Life Area,
@@ -59,6 +59,10 @@ The current vision statement is visible or accessible from the
 than one click from any planning screen.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.1 - 19-Sep-2026
 

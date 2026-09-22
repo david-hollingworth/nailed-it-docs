@@ -2,8 +2,8 @@
 title: "09 Habit Tracking"
 description: "Recurring behaviours tracked via streaks and completion rate"
 draft: false
-revision: "1.1"
-revision_date: "20-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 Habits are a recurring behaviour, distinct from a Goal or Task rather than a special
@@ -104,6 +104,10 @@ Phased alongside the review engine's notification delivery (Phase 2), since it
 shares the same notification infrastructure.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.1 - 20-Sep-2026
 

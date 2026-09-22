@@ -2,8 +2,8 @@
 title: "02 Vision Board"
 description: "A free-form mind-map canvas connecting the vision to life areas and goals"
 draft: false
-revision: "1.1"
-revision_date: "19-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 The vision board is a devolving planning tool — vision → life areas → goals → tasks — rather
@@ -161,6 +161,10 @@ have given for free, without constraining board layout permanently. See [13 UI a
 for how this compares to filter behaviour on other, list-style views.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.1 - 19-Sep-2026
 

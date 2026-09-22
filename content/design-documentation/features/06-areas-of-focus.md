@@ -2,8 +2,8 @@
 title: "06 Areas of Focus"
 description: "Life Areas grouping goals and tasks, and surfacing neglected areas"
 draft: false
-revision: "1.1"
-revision_date: "20-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 Life Areas (e.g. Health, Career, Relationships, Finance) are the app's organising
@@ -48,6 +48,10 @@ This is intentionally lightweight — not a scored "life wheel" — unless that'
 in a later phase.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.1 - 20-Sep-2026
 

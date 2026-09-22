@@ -2,7 +2,7 @@
 title: "11 Success Drivers"
 description: "Personally-chosen affirmation statements a user attaches to their reviews"
 draft: false
-revision: "1.2"
+revision: "2.0"
 revision_date: "22-Sep-2026"
 ---
 
@@ -231,6 +231,10 @@ features:
   lightweight, non-gamified signal for what to keep or retire.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.2 - 22-Sep-2026
 

@@ -2,8 +2,8 @@
 title: "00 Base Entity Features"
 description: "Shared create/edit/delete lifecycle that Life Areas, Goals, Tasks, and Habits extend"
 draft: false
-revision: "1.2"
-revision_date: "19-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 ## Overview
@@ -64,6 +64,10 @@ duplicate, a typo, a test entry) and needs no reason to exist. Abandon is for an
 identically.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.2 - 19-Sep-2026
 

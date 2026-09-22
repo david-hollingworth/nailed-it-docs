@@ -2,8 +2,8 @@
 title: "03 Goal Hierarchy"
 description: "Recursive sub-goal structure, duration-based time-bound targets, and re-parenting"
 draft: false
-revision: "1.2"
-revision_date: "19-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 Goal and Task share a large common core — base fields, due date consistency across
@@ -412,6 +412,10 @@ once confronted with a Stale item, the others being recommit/update or
 [13 UI and Shared Features](/nailed-it-docs/design-documentation/features/13-ui-and-shared-features#feat-1306).
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.2 - 19-Sep-2026
 

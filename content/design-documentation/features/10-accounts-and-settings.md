@@ -2,8 +2,8 @@
 title: "10 Accounts and Settings"
 description: "Registration, login, notification channels, and AI provider configuration"
 draft: false
-revision: "1.2"
-revision_date: "20-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 Unlike Features 01–09, this file is not numbered against one of the PRD's
@@ -137,6 +137,10 @@ due date consistency check — where an edit or re-parent pulls an ancestor's da
 earlier than one or more of its descendants'. Default: **OFF**.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.2 - 20-Sep-2026
 

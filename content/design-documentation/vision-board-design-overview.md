@@ -2,8 +2,8 @@
 title: "Vision Board — Design Overview"
 description: "Design philosophy and hard specification for the Vision Board: Life Area ownership vs. impact, card-based visual representation, status lifecycle, and the shared filter model"
 draft: false
-revision: "1.1"
-revision_date: "17-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 weight: 20
 ---
 
@@ -452,6 +452,10 @@ either — they sit outside, not inside, the ordinary Status multi-select.
 ---
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.1 - 17-Sep-2026
 

@@ -2,7 +2,7 @@
 title: "13 UI and Shared Features"
 description: "Cross-cutting interaction and rendering conventions, including the shared, app-wide filter specification, used across multiple features and views"
 draft: false
-revision: "1.2"
+revision: "2.0"
 revision_date: "22-Sep-2026"
 ---
 
@@ -225,6 +225,10 @@ as the distinguishing signal, since it fails for colour-blind users.
   here.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.2 - 22-Sep-2026
 

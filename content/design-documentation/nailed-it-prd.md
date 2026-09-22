@@ -2,7 +2,7 @@
 title: "Nailed-It — Product Requirements Document"
 description: "An overview of the features and requirements for the Nailed-It application."
 draft: false
-revision: "1.1"
+revision: "2.0"
 revision_date: "22-Sep-2026"
 weight: 10
 ---
@@ -404,6 +404,10 @@ Since this is a personal tool, "success" means *the system gets used the way it'
 ---
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.1 - 22-Sep-2026
 

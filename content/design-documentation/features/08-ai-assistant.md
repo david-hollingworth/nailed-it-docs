@@ -2,8 +2,8 @@
 title: "08 AI Assistant"
 description: "Goal critique and pattern insight, on a swappable AI provider backend"
 draft: false
-revision: "1.1"
-revision_date: "13-Sep-2026"
+revision: "2.0"
+revision_date: "22-Sep-2026"
 ---
 
 The AI assistant is valuable but depends on the rest of the data model existing first
@@ -95,6 +95,10 @@ selection, per
 No assistant feature assumes a specific provider.
 
 ## Revision History
+
+### Version 2.0 - 22-Sep-2026
+
+- Approved at version 2.0.
 
 ### Version 1.1 - 13-Sep-2026
 
