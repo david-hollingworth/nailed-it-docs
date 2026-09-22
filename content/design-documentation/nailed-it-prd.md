@@ -2,8 +2,8 @@
 title: "Nailed-It — Product Requirements Document"
 description: "An overview of the features and requirements for the Nailed-It application."
 draft: false
-revision: "1.0"
-revision_date: "13-Sep-2026"
+revision: "1.1"
+revision_date: "22-Sep-2026"
 weight: 10
 ---
 
@@ -33,6 +33,13 @@ Most goal-tracking tools are designed either from the simple to-do list or the p
 ## Primary User
 
 One persona per account: **a user**, using Nailed-It for their own personal and professional life planning. The app is multi-account (username/password login, PWA) so it can run as a shared instance for more than one person, but each account only ever sees its own data — no admin roles, permissions, or org/team concepts are needed beyond basic authentication.
+
+## Administration User
+
+An administration user is created during the initial setup procedure. This user cannot use the functionality of Nailed-It, but is used for speciic administration functionality:
+
+- Password reset (in the envent that there's no email service configured).
+- Set the email service parameters, which are applied across all users.
 
 ---
 
@@ -397,6 +404,10 @@ Since this is a personal tool, "success" means *the system gets used the way it'
 ---
 
 ## Revision History
+
+### Version 1.1 - 22-Sep-2026
+
+- Added an administration user
 
 ### Version 1.0 - 13-Sep-2026
 
