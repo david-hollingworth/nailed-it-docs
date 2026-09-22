@@ -2,17 +2,20 @@
 title: "13 UI and Shared Features"
 description: "Cross-cutting interaction and rendering conventions, including the shared, app-wide filter specification, used across multiple features and views"
 draft: false
-revision: "1.0"
-revision_date: "13-Sep-2026"
+revision: "1.2"
+revision_date: "22-Sep-2026"
 ---
 
 Unlike Features 00–12, this file doesn't correspond to a single PRD section or a
 single entity type. It groups interaction and rendering conventions that apply across
 multiple features and views, rather than behaviour owned by one entity or feature
 area. Where [00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features)
-covers shared entity data fields and lifecycle (create/edit/delete), this file covers
-shared UI/interaction conventions — some of which extend beyond the base entity model
-to fields like the Vision Statement.
+covers the shared create/edit/delete lifecycle common to Life Areas, Goals, Tasks,
+and Habits, and [03 Goal Hierarchy](/nailed-it-docs/features/03-goal-hierarchy) (with
+[05 Task Hierarchy](/nailed-it-docs/features/05-task-hierarchy)) covers Goal/Task-specific
+fields and lifecycle (status, date consistency, abandon/recommit, archive,
+staleness), this file covers shared UI/interaction conventions — some of which
+extend beyond the base entity model to fields like the Vision Statement.
 
 ## FEAT-1301 Markdown-formatted text fields
 
@@ -32,7 +35,7 @@ applied wherever they are displayed, rather than as plain or raw text.
 
 Raw HTML entered into these fields is sanitised — permitted tags are kept and
 rendered, everything else is stripped — rather than escaped to literal text or
-rejected outright (resolved 13-Sep-2026). This matches the existing
+rejected outright. This matches the existing
 `django-markdownify` + `bleach` rendering pipeline already in use; the specific
 allowed-tags list is an implementation detail, not specified here.
 
@@ -69,6 +72,7 @@ The full set, with type and default:
 | Needs Review / Stale | Toggle | All shown |
 | Progress / Completion | Range | All shown |
 | Habit-linked | Toggle | All shown |
+| Active / Inactive | Toggle | All shown |
 | Free-text search | Text | — |
 
 A view may omit any filter that doesn't apply to it (e.g. a Review screen may not
@@ -96,9 +100,7 @@ type:
 - A **Task** matches if the selected Life Area is the one it currently derives from
   its parent Goal (see [05 Task Hierarchy, FEAT-0505](/nailed-it-docs/features/05-task-hierarchy#feat-0505-task-life-area))
   — there's no primary/impacted distinction to make.
-- A **Habit** matches on whichever applies: its derived Life Area if linked to a
-  Goal, or its own independent tag(s) if standalone (see
-  [09 Habit Tracking, FEAT-0907](/nailed-it-docs/features/09-habit-tracking#feat-0907-habit-life-area)).
+- A **Habit** matches its derived Life Area from its parent Goal.
 
 ## FEAT-1304 Due Date filter
 
@@ -106,14 +108,14 @@ type:
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0001 - Core planning entity fields](/nailed-it-docs/features/00-base-entity-features#feat-0001-core-planning-entity-fields) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0310 - Core planning entity fields](/nailed-it-docs/features/03-goal-hierarchy#feat-0310-core-planning-entity-fields) |
 
 ### Description
 
 Preset options, plus a custom range: Past Due, Due Today, Due This Week, Due Next
 Week, Due This Month, Due Next Month, Due This Year, Due Next Year, Due within 10
 Years, Custom Due Date. Applies uniformly to Tasks' due dates and Goals' computed
-target dates (see FEAT-0001) — both resolve to a real, storable date, so this filter
+target dates (see [03 Goal Hierarchy, FEAT-0310](/nailed-it-docs/features/03-goal-hierarchy#feat-0310-core-planning-entity-fields)) — both resolve to a real, storable date, so this filter
 treats Goals and Tasks the same way.
 
 ## FEAT-1305 Status, Abandoned, and Archived filters
@@ -122,7 +124,7 @@ treats Goals and Tasks the same way.
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0007 - Abandon and recommit](/nailed-it-docs/features/00-base-entity-features#feat-0007-abandon-and-recommit), [FEAT-0008 - Archive a completed entity](/nailed-it-docs/features/00-base-entity-features#feat-0008-archive-a-completed-entity) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0312 - Abandon and recommit](/nailed-it-docs/features/03-goal-hierarchy#feat-0312-abandon-and-recommit), [FEAT-0313 - Archive a completed entity](/nailed-it-docs/features/03-goal-hierarchy#feat-0313-archive-a-completed-entity) |
 
 ### Description
 
@@ -143,7 +145,7 @@ either, and both are hidden-by-default, deliberately-revealed states rather than
 |---|---|
 | **Status** | Draft |
 | **Phase** | 1 |
-| **Extends** | [FEAT-0009 - Stale / Needs Review signal](/nailed-it-docs/features/00-base-entity-features#feat-0009-stale--needs-review-signal) |
+| **Extends** | [03 Goal Hierarchy, FEAT-0314 - Stale / Needs Review signal](/nailed-it-docs/features/03-goal-hierarchy#feat-0314-stale--needs-review-signal) |
 
 ### Description
 
@@ -166,6 +168,7 @@ entity's `status` value.
 - **Progress / Completion** — range (e.g. 0–25%, 25–75%, near-complete).
 - **Habit-linked** — toggle. Goals with an associated [Habit](/nailed-it-docs/features/09-habit-tracking)
   vs. those without.
+- **Active / Inactive** - Goals that aren't full defined are Inactive.
 - **Free-text search** — title/description keyword search.
 
 ## FEAT-1308 Per-view filter application
@@ -181,9 +184,8 @@ How a filter selection visually manifests may differ by view. The
 [Vision Board](/nailed-it-docs/features/02-vision-board#feat-0206-highlight-on-filter-interaction)
 explicitly highlights matching cards and dims non-matching ones, keeping the full
 canvas visible — documented behaviour, not an assumption. Ordinary list-style views
-(Goal list, Task list, Life Area detail, Review screens) are assumed to hide
-non-matching items in the conventional way; this isn't explicitly specified in the
-source design document and is flagged here as an assumption rather than stated fact.
+(Goal list, Task list, Life Area detail, Review screens) are shall hide
+non-matching items in the conventional way.
 
 ## FEAT-1309 Field-level contextual help
 
@@ -223,6 +225,22 @@ as the distinguishing signal, since it fails for colour-blind users.
   here.
 
 ## Revision History
+
+### Version 1.2 - 22-Sep-2026
+
+- FEAT-1302 - Added a filter category for Active or Inactive to filter goals that haven't been full specified.
+- FEAT-1303 - Removed a reference to standalone Habits. These have been dropped from the features and all Habits are now linked to Goals.
+- FEAT-1307 - Added the Active/Inactive filter.
+- FEAT-1308 - Updated the description to specify how filders behave in list views.
+
+### Version 1.1 - 17-Sep-2026
+
+- Repointed FEAT-1304, FEAT-1305, and FEAT-1306's `Extends` links (and FEAT-1304's
+  body reference) to the relocated FEAT-0310, FEAT-0312, FEAT-0313, and FEAT-0314 in
+  [03 Goal Hierarchy](/nailed-it-docs/features/03-goal-hierarchy) — these moved out of
+  [00 Base Entity Features](/nailed-it-docs/features/00-base-entity-features), since
+  none were ever actually shared with Life Area or Habit. Updated the intro
+  paragraph to describe the new split.
 
 ### Version 1.0 - 13-Sep-2026
 

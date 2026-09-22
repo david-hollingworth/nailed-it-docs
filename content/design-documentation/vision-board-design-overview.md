@@ -2,8 +2,8 @@
 title: "Vision Board — Design Overview"
 description: "Design philosophy and hard specification for the Vision Board: Life Area ownership vs. impact, card-based visual representation, status lifecycle, and the shared filter model"
 draft: false
-revision: "1.0"
-revision_date: "13-Sep-2026"
+revision: "1.1"
+revision_date: "17-Sep-2026"
 weight: 20
 ---
 
@@ -116,7 +116,7 @@ Once set, it's an ordinary, independently-editable primary like any Goal's; a la
 change to the parent's own primary does not retroactively update it. The user can,
 however, opt into an **optional cascade** at the moment the parent's primary
 changes — a confirmation dialog, in the same shape as the due-date cascade (see
-[00 Base Entity Features, FEAT-0005](/nailed-it-docs/features/00-base-entity-features#feat-0005-due-date-consistency-across-the-entity-tree)),
+[03 Goal Hierarchy, FEAT-0311](/nailed-it-docs/features/03-goal-hierarchy#feat-0311-due-date-consistency-across-the-entity-tree)),
 which offers to update descendant sub-goals still matching the old primary
 (deliberately-diverged ones are left alone), recursing through the full descendant
 chain if accepted. Full mechanics:
@@ -453,6 +453,14 @@ either — they sit outside, not inside, the ordinary Status multi-select.
 ---
 
 ## Revision History
+
+### Version 1.1 - 17-Sep-2026
+
+- Repointed the **Sub-goal default, not sync** cross-reference from
+  [00 Base Entity Features, FEAT-0005] to
+  [03 Goal Hierarchy, FEAT-0311](/nailed-it-docs/features/03-goal-hierarchy#feat-0311-due-date-consistency-across-the-entity-tree) —
+  the due-date cascade feature relocated there, since it was never actually shared
+  with Life Area or Habit.
 
 ### Version 1.0 - 13-Sep-2026
 

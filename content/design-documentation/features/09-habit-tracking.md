@@ -2,8 +2,8 @@
 title: "09 Habit Tracking"
 description: "Recurring behaviours tracked via streaks and completion rate"
 draft: false
-revision: "1.0"
-revision_date: "13-Sep-2026"
+revision: "1.1"
+revision_date: "20-Sep-2026"
 ---
 
 Habits are a recurring behaviour, distinct from a Goal or Task rather than a special
@@ -19,7 +19,7 @@ case of one — many goals are achieved through repetition rather than a single 
 
 ### Description
 
-The user can create a Habit with a title, an optional description, and an optional
+The user can create a Habit with a title, an optional description, and a
 link to the parent [Goal](/nailed-it-docs/features/03-goal-hierarchy) it serves
 (e.g. a "Meditate daily" habit supporting a specific Goal, or standing alone). Its
 Life Area is set differently depending on that link — see
@@ -29,7 +29,7 @@ Cadence is configurable as one of:
 
 - Daily
 - Weekly
-- A target count per week (e.g. "3x/week")
+- A target count per time period (e.g. "3x/week")
 - Specific days of the week
 
 ## FEAT-0902 Habit check-in
@@ -105,40 +105,12 @@ the habit's own cadence rather than the review schedule.
 Phased alongside the review engine's notification delivery (Phase 2), since it
 shares the same notification infrastructure.
 
-## FEAT-0907 Habit Life Area
-
-| | |
-|---|---|
-| **Status** | Draft |
-| **Phase** | 1 |
-| **Extends** | [FEAT-0901 - Habit creation and cadence](#feat-0901-habit-creation-and-cadence), [03 Goal Hierarchy, FEAT-0308 - Primary Life Area](/nailed-it-docs/features/03-goal-hierarchy#feat-0308-primary-life-area) |
-
-### Description
-
-Unlike a Task, a Habit's link to a Goal is optional (see
-[FEAT-0901](#feat-0901-habit-creation-and-cadence)), so its Life Area can't purely
-derive from a Goal it might not have. It works one of two ways depending on that
-link:
-
-- **Linked to a Goal** — the Habit's Life Area mirrors that Goal's *current* primary
-  Life Area, live, exactly like a
-  [Task](/nailed-it-docs/features/05-task-hierarchy#feat-0505-task-life-area) — not
-  independently settable while the link holds.
-- **Not linked to a Goal** — the Habit carries its own independent, directly-set
-  Life Area, as one or more tags (multi-select, not a single primary — a Habit is
-  never a Vision Board node, so there's no canvas edge forcing a single value the
-  way there is for a Goal).
-
-The two states transition rather than coexist:
-
-- **Linking** a previously-standalone Habit to a Goal switches it to derived from
-  that point forward, replacing whatever independent tags it had.
-- **Unlinking** a Habit from its Goal freezes whatever Life Area it had most
-  recently derived as its new independent starting tag(s), rather than clearing it
-  to nothing — the Habit still needs a Life Area to be shown in
-  [Areas of Focus](/nailed-it-docs/features/06-areas-of-focus) grouping.
-
 ## Revision History
+
+### Version 1.1 - 20-Sep-2026
+
+- FEAT-0901 - Updated the description to remove the "optional" nature of a link to a goal. Updated the Cadence to a count per time period, rather than specifying it weekly.
+- FEAT-0907 - Removed this feature becuase a Habit's link to a Goal is no longer optional.
 
 ### Version 1.0 - 13-Sep-2026
 

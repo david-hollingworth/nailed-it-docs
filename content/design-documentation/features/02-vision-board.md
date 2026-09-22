@@ -2,11 +2,11 @@
 title: "02 Vision Board"
 description: "A free-form mind-map canvas connecting the vision to life areas and goals"
 draft: false
-revision: "1.0"
-revision_date: "13-Sep-2026"
+revision: "1.1"
+revision_date: "19-Sep-2026"
 ---
 
-The vision board is a devolving planning tool — vision → life areas → goals — rather
+The vision board is a devolving planning tool — vision → life areas → goals → tasks — rather
 than a generic whiteboard. Some people think visually and some think in lists; nodes on
 the board and the underlying Life Area/Goal/Task records stay in sync regardless of
 where they were created, so both are first-class entry points into the same data.
@@ -34,12 +34,7 @@ elsewhere in the application.
 #### Primary Life Area edge constraint
 
 A **Goal** node's primary Life Area is represented by exactly one draggable edge to
-its Life Area node — not a badge (see
-[03 Goal Hierarchy, FEAT-0308](/nailed-it-docs/features/03-goal-hierarchy#feat-0308-primary-life-area)).
-A Goal node's first canvas connection becomes this edge; a sub-goal's edge is
-instead drawn automatically at creation, already pointing at its inherited default
-(see [03 Goal Hierarchy, FEAT-0306](/nailed-it-docs/features/03-goal-hierarchy#feat-0306-sub-goal-primary-life-area-default)),
-so the first-connection rule is never actually tested for one.
+its Life Area node.
 
 To change primary, the user **reconnects** the existing edge's endpoint onto a
 different Life Area node — a distinct gesture from creating a fresh connection. The
@@ -63,6 +58,15 @@ shows as a single badge only, reflecting its parent Goal's current primary, live
 
 Full design rationale: [Vision Board — Design Overview](/nailed-it-docs/design-documentation/vision-board-design-overview).
 
+#### Connections
+
+On the Vision Board connections exist between:
+
+- Goals and their Primary Life Area
+- Sub-goals and their parent Goal
+- Tasks and their parent Goal or Sub-Goal
+- Habits and their parent Goal or Sub-Goal
+
 ## FEAT-0202 Board and record synchronisation
 
 | | |
@@ -72,7 +76,7 @@ Full design rationale: [Vision Board — Design Overview](/nailed-it-docs/design
 
 ### Description
 
-Creating a Life Area, Goal, or Task node on the board creates the corresponding
+Creating a Life Area, Goal, Task or Habit node on the board creates the corresponding
 record, and vice versa — Goals and Life Areas created elsewhere (e.g. via the standard
 [create entity](/nailed-it-docs/features/00-base-entity-features#feat-0002-create-entity)
 form) appear on the board as nodes, connected to any parent node.
@@ -98,16 +102,7 @@ independent relationship.
 
 ### Description
 
-Board state — node positions and connections — persists between sessions.
-
-#### Note
-
-"Connections" here means a Goal's primary Life Area edge — the one relationship
-expressed positionally on the canvas. Impacted Life Area relationships are not part
-of this board-state persistence; they persist as ordinary rows via their own form
-(or the canvas mechanics in FEAT-0201), regardless of whether the Goal happens to be
-on the canvas. A Task node has no connection to persist here at all — its Life Area
-badge is computed at render time, not stored board state.
+Board state — all node positions and connections — persists between sessions.
 
 ## FEAT-0204 Vision-led hierarchy
 
@@ -166,6 +161,12 @@ have given for free, without constraining board layout permanently. See [13 UI a
 for how this compares to filter behaviour on other, list-style views.
 
 ## Revision History
+
+### Version 1.1 - 19-Sep-2026
+
+- FEAT-0201 - Removed a lot of incomprehensible waffle from the section about Primary Life Area edge constraint. Added a section to clarify the connections possible on the Vision Board
+- FEAT-0202 - Added ceation of the Habit node to the Vision Board.
+- FEAT-0203 - Removed the note about connections which was confusing.
 
 ### Version 1.0 - 13-Sep-2026
 

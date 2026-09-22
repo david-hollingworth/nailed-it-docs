@@ -20,7 +20,7 @@ small scheduling sub-model rather than a single fixed cadence per review type.
 
 The app provides five built-in review types: Daily, Weekly, Monthly, Yearly, and
 Ad-hoc. Each review type has a default cadence, which is user-editable per type — for
-example, the "Monthly" review type can be rescheduled to trigger every two weeks.
+example, the "Monthly" review type can be rescheduled to trigger every two weeks. Daily reviews can be scheduled for both morning and/or afternoon.
 
 ## FEAT-0702 Custom review scheduling rules
 

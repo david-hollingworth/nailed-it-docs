@@ -2,8 +2,8 @@
 title: "04 Goal Depth: SMARTER and Well-Formed Outcome"
 description: "The SMARTER core every goal carries, plus the optional seven-section deep-dive"
 draft: false
-revision: "1.0"
-revision_date: "13-Sep-2026"
+revision: "1.1"
+revision_date: "20-Sep-2026"
 ---
 
 Well-Formed Outcome is not a separate, mutually-exclusive goal structure sitting
@@ -34,6 +34,10 @@ alternative structures:
 
 SMARTER alone is the default for new goals — no extra prompts are shown unless the
 user opts in to Well-Formed Outcome depth.
+
+A Goal is set an inactive until all the SMARTER fields have been completed. Once all the fields are filled the user can set the Goal as Active.
+
+A Goal can be saved in an Inactive state before all the SMARTER fields are completed, and tasks and sub-goals can be added too it in this state but the Goal cannot be made Active.
 
 **Time-bound** is captured as a duration — years and months — rather than a calendar
 date; see
@@ -103,7 +107,7 @@ Each Well-Formed Outcome sub-question can be left blank. This is a reflective to
 not a validation gate — the app does not block saving a goal because Well-Formed
 Outcome fields are incomplete.
 
-## FEAT-0405 Convert control actions into tasks
+## FEAT-0405 Convert Well-Formed Outcome actions into tasks
 
 | | |
 |---|---|
@@ -113,8 +117,7 @@ Outcome fields are incomplete.
 
 ### Description
 
-Section 3's ("Control") "what actions are necessary" answer can optionally be turned
-directly into one or more [Tasks](/nailed-it-docs/features/05-task-hierarchy) under
+Any actions that are idedntified during the Well-Formed Outcome process can optionally be turned directly into one or more [Tasks](/nailed-it-docs/features/05-task-hierarchy) under
 the goal — a natural bridge into the task hierarchy.
 
 ## FEAT-0406 AI-assisted question refinement
@@ -138,6 +141,11 @@ than the rest of the Well-Formed Outcome wizard. The wizard itself does not requ
 to be configured — this is an enhancement on top of it.
 
 ## Revision History
+
+### Version 1.1 - 20-Sep-2026
+
+- FEAT-0401 - Added an Active/Inactive status for a goal.
+- FEAT-0405 - Updated to include all actions identified during nthe Well-Formed Outcomes Process.
 
 ### Version 1.0 - 13-Sep-2026
 

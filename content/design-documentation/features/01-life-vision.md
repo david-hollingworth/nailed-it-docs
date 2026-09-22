@@ -42,8 +42,7 @@ Previous versions of the vision statement are retained and viewable.
 
 #### Note
 
-This is a lightweight history (a list of past versions with their save dates), not a
-full diff/comparison view between versions.
+This is a full diff/comparison history so that the user can see exactly what they changed over the different versions. 
 
 ## FEAT-0103 Vision statement quick access
 
@@ -60,6 +59,10 @@ The current vision statement is visible or accessible from the
 than one click from any planning screen.
 
 ## Revision History
+
+### Version 1.1 - 19-Sep-2026
+
+- FEAT-0102 - Updated this feature to become a full difference comparison between versions of the vision history.
 
 ### Version 1.0 - 13-Sep-2026
 

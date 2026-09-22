@@ -2,8 +2,8 @@
 title: "11 Success Drivers"
 description: "Personally-chosen affirmation statements a user attaches to their reviews"
 draft: false
-revision: "1.1"
-revision_date: "13-Sep-2026"
+revision: "1.2"
+revision_date: "22-Sep-2026"
 ---
 
 Success Drivers add an affective, identity-level layer on top of the existing
@@ -164,7 +164,7 @@ A user's custom drivers and library adoptions are private to their account, with
 cross-account visibility — consistent with Nailed-It's existing multi-account model
 (see [10 Accounts and Settings](/nailed-it-docs/features/10-accounts-and-settings)).
 
-## FEAT-1110 Rich text emphasis for driver wording
+## FEAT-1110 Markdown emphasis for driver wording
 
 | | |
 |---|---|
@@ -194,6 +194,21 @@ retiring it.
 This is a lightweight, non-gamified signal only. It is display information, not a
 tracked streak or count — consistent with the feature's Non-Goals above.
 
+## FEAT-1112 Driver display on login
+
+| | |
+|---|---|
+| **Status** | Draft |
+| **Phase** | TBD (Version 2, after the rest of this feature) |
+
+### Description
+
+The user can select an option to display a randon success driver, selected from their set, when they first login. The driver stays visible on a layer above their dashboard until they dismiss it.
+
+### Note
+
+If the user's driver set is empty but they have selected to display a driver on login then nothing is displayed until a first driver is selected from the library or is created by the user.
+
 ## Future Considerations
 
 The following ideas are explicitly deferred and are not yet
@@ -216,6 +231,11 @@ features:
   lightweight, non-gamified signal for what to keep or retire.
 
 ## Revision History
+
+### Version 1.2 - 22-Sep-2026
+
+- FEAT-1110 - Changed the title from "Rich text" to "Markdown" to avoid confusion between editing capabilities.
+- FEAT-1112 - New feature.
 
 ### Version 1.1 - 13-Sep-2026
 

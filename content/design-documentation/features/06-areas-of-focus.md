@@ -2,8 +2,8 @@
 title: "06 Areas of Focus"
 description: "Life Areas grouping goals and tasks, and surfacing neglected areas"
 draft: false
-revision: "1.0"
-revision_date: "13-Sep-2026"
+revision: "1.1"
+revision_date: "20-Sep-2026"
 ---
 
 Life Areas (e.g. Health, Career, Relationships, Finance) are the app's organising
@@ -30,32 +30,7 @@ app-wide filter capability itself — including filtering by Life Area — lives
 A dedicated view lists all Life Areas, each showing its associated Goals, Tasks, and
 [Habits](/nailed-it-docs/features/09-habit-tracking).
 
-## FEAT-0602 Cross-app Life Area filtering — superseded
-
-| | |
-|---|---|
-| **Status** | Superseded |
-| **Superseded by** | [13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features) |
-
-### Description
-
-This capability was originally described here as a standalone, Life-Area-only
-filter applied across the vision board, goal list, and task list. It has been
-superseded by the shared, app-wide filter specification in
-[13 UI and Shared Features](/nailed-it-docs/features/13-ui-and-shared-features), which covers Life Area filtering
-(with the primary/impacted distinction — see
-[FEAT-1303](/nailed-it-docs/features/13-ui-and-shared-features#feat-1303-life-area-filter-primary-vs-impacted-match))
-alongside ten other filter dimensions, and applies uniformly across the Vision
-Board, Goal and Task lists, Life Area detail, and Review screens, rather than being
-defined per view.
-
-#### Note
-
-The ID is kept rather than removed, since
-[Vision Board — Design Overview](/nailed-it-docs/design-documentation/vision-board-design-overview)
-cites it by name in its Open Questions.
-
-## FEAT-0603 Attention indicator per Area of Focus
+## FEAT-0602 Attention indicator per Area of Focus
 
 | | |
 |---|---|
@@ -73,6 +48,10 @@ This is intentionally lightweight — not a scored "life wheel" — unless that'
 in a later phase.
 
 ## Revision History
+
+### Version 1.1 - 20-Sep-2026
+
+- FEAT-0602 - Removed superseded feature definition. Renumbered following feature.
 
 ### Version 1.0 - 13-Sep-2026
 

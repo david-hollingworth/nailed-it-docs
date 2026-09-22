@@ -2,8 +2,8 @@
 title: "12 Calendar Integration"
 description: "Push-only sync of Task due dates and Review occurrences to Google Calendar or CalDAV"
 draft: false
-revision: "1.0"
-revision_date: "13-Sep-2026"
+revision: "1.1"
+revision_date: "22-Sep-2026"
 ---
 
 Calendar Integration publishes Task due dates and scheduled
@@ -77,8 +77,7 @@ removed independently.
 ### Description
 
 A Task with a due date creates a corresponding calendar event on the connected
-calendar(s) when saved. Editing the due date updates the event; deleting or
-completing the Task removes or updates the event accordingly.
+calendar(s) when saved. Editing the due date in Nailed-It updates the event in the calendar; deleting or completing the Task removes or updates the event in the calendar accordingly.
 
 ## FEAT-1203 Review occurrence sync
 
@@ -147,6 +146,10 @@ traceability, not as specified features:
   only as a hypothetical future idea.
 
 ## Revision History
+
+### Version 1.1 - 22-Sep-2026
+
+- FEAT-1202 - Updated toe description to clarify what is being changed where.
 
 ### Version 1.0 - 13-Sep-2026
 
